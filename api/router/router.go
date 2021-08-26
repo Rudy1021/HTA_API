@@ -9,13 +9,13 @@ import (
 func InitRouter() *gin.Engine {
 	router := gin.Default()
 
-	router.GET("/users", HelloWorld)
+	router.GET("/SelectAttendee", Attendee_s)
 
-	router.POST("/user")
+	router.POST("/UploadAttendee", Attendee_c)
 
-	router.PUT("/user/:id")
+	router.PUT("/UpdateAttendee", Attendee_u)
 
-	router.DELETE("/user/:id")
+	router.DELETE("/user", Attendee_d)
 
 	return router
 }
