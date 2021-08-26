@@ -1,13 +1,15 @@
 package router
 
 import (
+	. "HTA_api/api/apis"
+
 	"github.com/gin-gonic/gin"
 )
 
 func InitRouter() *gin.Engine {
 	router := gin.Default()
 
-	router.GET("/users")
+	router.GET("/users", HelloWorld)
 
 	router.POST("/user")
 

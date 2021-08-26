@@ -8,6 +8,7 @@ import (
 )
 
 var Db *gorm.DB
+var err error
 
 func init() {
 	username := "pmsadmin"
@@ -15,8 +16,8 @@ func init() {
 	dbName := "pms"
 	dbHost := "database-1.c1doybqwvpca.ap-northeast-1.rds.amazonaws.com"
 	dbUri := fmt.Sprintf("host=%s user=%s dbname=%s sslmode=disable password=%s", dbHost, username, dbName, password)
-	//連接資料庫
-	Db, err := gorm.Open("postgres", dbUri)
+
+	Db, err = gorm.Open("postgres", dbUri)
 	if err != nil {
 		fmt.Print(err)
 	}
