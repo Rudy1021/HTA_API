@@ -9,7 +9,7 @@ import (
 func InitRouter() *gin.Engine {
 	router := gin.Default()
 
-	router.GET("/users", HelloWorld)
+	router.GET("/users", GetAuth)
 
 	router.POST("/user")
 
