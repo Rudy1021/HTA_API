@@ -17,5 +17,6 @@ func InitRouter() *gin.Engine {
 
 	router.DELETE("/DeleteAttendee", Attendee_d)
 
+	router.GET("/test", Test)
 	return router
 }
