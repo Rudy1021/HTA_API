@@ -10,7 +10,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func Attendee_s(c *gin.Context) {
+func Attendee_r(c *gin.Context) {
 	var attendee model.Attendee
 	result := orm.Db.Find(&attendee)
 	if result.Error != nil {
@@ -21,7 +21,7 @@ func Attendee_s(c *gin.Context) {
 	} else {
 		c.JSON(http.StatusOK, gin.H{
 			"code":    -1,
-			"message": "取得失敗",
+			"message": result,
 		})
 	}
 
@@ -40,7 +40,7 @@ func Attendee_c(c *gin.Context) {
 	} else {
 		c.JSON(http.StatusOK, gin.H{
 			"code":    -1,
-			"message": "新增失敗",
+			"message": result.Error,
 		})
 	}
 }
