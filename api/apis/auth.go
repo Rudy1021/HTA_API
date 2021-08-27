@@ -10,6 +10,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+//select
 func GetAuth(c *gin.Context) {
 	var auth model.Auth
 	result := orm.Db.Find(&auth)
