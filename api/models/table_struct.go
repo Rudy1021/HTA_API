@@ -3,7 +3,7 @@ package models
 type Attendee struct {
 	User_id     int
 	Customer_id int
-	A_id        *int
+	A_id        *int `gorm:"-"`
 }
 type Attendee_u struct {
 	A_id        int
