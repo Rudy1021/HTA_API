@@ -30,15 +30,15 @@ func Attendee_r(c *gin.Context) {
 
 func Attendee_one(c *gin.Context) {
 	var attendee model.Attendee
-	result, err := strconv.ParseInt(c.Param("id"), 10, 64)
+	id, err := strconv.ParseInt(c.Param("id"), 10, 64)
 	if err != nil {
 		c.JSON(http.StatusOK, gin.H{
 			"code":    -1,
 			"message": err,
 		})
 	} else {
-		re := orm.Db.Find(&attendee, "A_id = ?", result)
-		if re.Error != nil {
+		result := orm.Db.First(&attendee, id)
+		if result.Error != nil {
 			c.JSON(http.StatusOK, gin.H{
 				"code":    -1,
 				"message": err,
@@ -46,7 +46,7 @@ func Attendee_one(c *gin.Context) {
 		} else {
 			c.JSON(http.StatusOK, gin.H{
 				"code":    001,
-				"message": re,
+				"message": result,
 			})
 		}
 
@@ -103,3 +103,30 @@ func Attendee_d(c *gin.Context) {
 		})
 	}
 }
+
+/*
+func findAll(table string) (result *gorm.DB) {
+	switch table {
+	case "attendee":
+		var tables []model.Attendee
+		result = orm.Db.Find(&tables)
+	case "auth":
+		var tables []model.Auth
+		result = orm.Db.Find(&tables)
+	}
+
+	return result
+}
+
+func findone(table string, id int64) (result *gorm.DB) {
+	switch table {
+	case "attendee":
+		var tables []model.Attendee
+		result = orm.Db.First(&tables, id)
+	case "auth":
+		var tables []model.Auth
+		result = orm.Db.First(&tables, id)
+	}
+	return result
+}
+*/
