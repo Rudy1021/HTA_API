@@ -18,5 +18,14 @@ func InitRouter() *gin.Engine {
 	router.DELETE("/DeleteAttendee", Attendee_d)
 
 	router.GET("/test", Test)
+
+	router.GET("/SelectAuth", Auth_r)
+
+	router.POST("/UploadAuth", Auth_c)
+
+	router.PUT("/UpdateAuth")
+
+	router.DELETE("/DeleteAuth", Auth_d)
+
 	return router
 }
