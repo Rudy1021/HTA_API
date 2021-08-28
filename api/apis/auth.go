@@ -11,11 +11,53 @@ import (
 )
 
 //select
-func GetAuth(c *gin.Context) {
-	var auth model.Auth
+func Auth_r(c *gin.Context) {
+	var auth []model.Auth
 	result := orm.Db.Find(&auth)
-	c.JSON(http.StatusOK, gin.H{
-		"code":    -1,
-		"message": result,
-	})
+	if result.Error != nil {
+		c.JSON(http.StatusOK, gin.H{
+			"code":    -1,
+			"message": "讀取失敗",
+		})
+	} else {
+		c.JSON(http.StatusOK, gin.H{
+			"code":    -1,
+			"message": result.Value,
+		})
+	}
+
+}
+
+func Auth_c(c *gin.Context) {
+	var auth model.Auth
+	c.BindJSON(&auth)
+	result := orm.Db.Create(&auth)
+	if result.Error != nil {
+		c.JSON(http.StatusOK, gin.H{
+			"code":    -1,
+			"message": result.Error,
+		})
+	} else {
+		c.JSON(http.StatusOK, gin.H{
+			"code":    001,
+			"message": result,
+		})
+	}
+}
+
+func Auth_d(c *gin.Context) {
+	var auth model.Auth
+	c.BindJSON(&auth)
+	result := orm.Db.Debug().Delete(&auth)
+	if result.Error != nil {
+		c.JSON(http.StatusOK, gin.H{
+			"code":    -1,
+			"message": result.Error,
+		})
+	} else {
+		c.JSON(http.StatusOK, gin.H{
+			"code":    001,
+			"message": result,
+		})
+	}
 }

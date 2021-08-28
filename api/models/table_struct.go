@@ -1,5 +1,7 @@
 package models
 
+import "time"
+
 type Attendee struct {
 	User_id     int `json:"user_id"`
 	Customer_id int `json:"customer_id"`
@@ -10,4 +12,9 @@ type Sysuser struct {
 	Name    string
 }
 type Auth struct {
+	A_id        int
+	Name        string
+	Path        string
+	File        string
+	Create_time time.Time
 }
