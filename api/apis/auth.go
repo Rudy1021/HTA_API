@@ -31,7 +31,7 @@ func Auth_r(c *gin.Context) {
 func Auth_c(c *gin.Context) {
 	var auth model.Auth
 	c.BindJSON(&auth)
-	result := orm.Db.Create(&auth)
+	result := orm.Db.Debug().Create(&auth)
 	if result.Error != nil {
 		c.JSON(http.StatusOK, gin.H{
 			"code":    -1,
