@@ -17,50 +17,53 @@ type Countersign struct {
 	Create_time time.Time
 	Status      bool
 }
-<<<<<<< HEAD
 
-type customer struct {
-	C_id          *int
-	Short_name    string
-	Eng_name      string
-	Name          string
-	Zip_code      string
-	Address       string
-	Tel           string
-	Fax           string
-	Email         string
-	Map           string
-	Create_time   time.Time
-	Liaison       string
-	Liaison_phone string
-	Tax_id_number string
-	Creater       int
+// type CountSign struct {
+// 	C_id        int
+// 	Dep_id      int
+// 	Status      bool
+// 	Feedback    string
+// 	Create_time time.Time
+// }
+
+type Customer struct {
+	C_id        int
+	Short_name  string
+	Eng_name    string
+	Name        string
+	Zip_code    string
+	Address     string
+	Tel         string
+	Fax         string
+	Email       string
+	Map         string
+	Creater     string
+	Create_time time.Time
 }
 
-type customer_demand struct {
-	Customer_id     int
-	Task_name       string
-	Budget          string
-	Remarks         string
-	Extend_type_id  int
-	Extend_rem      string
-	Est_quantity    int
-	Countersign_id  []int
-	Meeting_id      []int
-	Date_for_recive time.Time
-	Task_id         []int
-	Accept          bool
-	Date_for_devlop time.Time
-	Eva_report      bool
-	Date_for_expect time.Time
-	Date_for_done   time.Time
-	Project_code    string
-	Salesman_id     int
-	File_id         int
-	Creater         int
-	Create_time     time.Time
-	C_id            *int
-	Subject         string
+type Customer_demand struct {
+	Id                int
+	Customer_id       int
+	Task_name         string
+	Budget            string
+	Remarks           string
+	Extend_type_id    int
+	Extend_rem        string
+	Est_quantity      int
+	Countersign_id    []int
+	Meeting_id        []int
+	Date_for_recive   time.Time
+	Task_id           []int
+	Accept            bool
+	Date_for_devlop   time.Time
+	Eva_report        bool
+	Date_for_expected time.Time
+	Date_for_done     time.Time
+	Project_code      string
+	Salesman_id       int
+	File_id           int
+	Creater           int
+	Create_time       time.Time
 }
 
 type Department struct {
@@ -263,63 +266,9 @@ type Work_set struct {
 }
 
 type Auth struct {
-	A_id        *int      `gorm:"<-:update;primary_key" json:"a_id"`
-	Name        string    `json:"name"`
-	Path        string    `json:"path"`
-	File        string    `json:"file"`
-	Create_time time.Time `json:"create_time"`
-}
-=======
-type Auth struct {
 	A_id        int `gorm:"<-:update;primary_key" json:"a_id"`
 	Name        string
 	Path        string
 	File        string
 	Create_time *time.Time
 }
-type CountSign struct {
-	C_id        int
-	Dep_id      int
-	Status      bool
-	Feedback    string
-	Create_time time.Time
-}
-type Customer struct {
-	C_id        int
-	Short_name  string
-	Eng_name    string
-	Name        string
-	Zip_code    string
-	Address     string
-	Tel         string
-	Fax         string
-	Email       string
-	Map         string
-	Creater     string
-	Create_time time.Time
-}
-type Customer_demand struct {
-	Id                int
-	Customer_id       int
-	Task_name         string
-	Budget            string
-	Remarks           string
-	Extend_type_id    int
-	Extend_rem        string
-	Est_quantity      int
-	Countersign_id    []int
-	Meeting_id        []int
-	Date_for_recive   time.Time
-	Task_id           []int
-	Accept            bool
-	Date_for_devlop   time.Time
-	Eva_report        bool
-	Date_for_expected time.Time
-	Date_for_done     time.Time
-	Project_code      string
-	Salesman_id       int
-	File_id           int
-	Creater           int
-	Create_time       time.Time
-}
->>>>>>> 78c9b9a19507e0c6f53de57286e0d20d1c3d54b7
