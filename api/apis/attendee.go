@@ -3,6 +3,7 @@ package apis
 import (
 	model "HTA_api/api/models"
 	"net/http"
+	"strconv"
 
 	//"strconv"
 	orm "HTA_api/api/database"
@@ -25,6 +26,31 @@ func Attendee_r(c *gin.Context) {
 		})
 	}
 
+}
+
+func Attendee_one(c *gin.Context) {
+	var attendee model.Attendee
+	id, err := strconv.ParseInt(c.Param("id"), 10, 64)
+	if err != nil {
+		c.JSON(http.StatusOK, gin.H{
+			"code":    -1,
+			"message": err,
+		})
+	} else {
+		result := orm.Db.First(&attendee, id)
+		if result.Error != nil {
+			c.JSON(http.StatusOK, gin.H{
+				"code":    -1,
+				"message": err,
+			})
+		} else {
+			c.JSON(http.StatusOK, gin.H{
+				"code":    001,
+				"message": result,
+			})
+		}
+
+	}
 }
 
 func Attendee_c(c *gin.Context) {
@@ -64,7 +90,7 @@ func Attendee_u(c *gin.Context) {
 func Attendee_d(c *gin.Context) {
 	var attendee model.Attendee
 	c.BindJSON(&attendee)
-	result := orm.Db.Debug().Delete(&attendee)
+	result := orm.Db.Delete(&attendee)
 	if result.Error != nil {
 		c.JSON(http.StatusOK, gin.H{
 			"code":    -1,
@@ -78,12 +104,29 @@ func Attendee_d(c *gin.Context) {
 	}
 }
 
-func Test(c *gin.Context) {
-	var attendee model.Attendee
-	c.BindJSON(&attendee)
-	orm.Db.Find(&attendee, "A_id = ?", attendee.A_id)
-	c.JSON(http.StatusOK, gin.H{
-		"message": attendee,
-		"asd":     attendee.Customer_id,
-	})
+/*
+func findAll(table string) (result *gorm.DB) {
+	switch table {
+	case "attendee":
+		var tables []model.Attendee
+		result = orm.Db.Find(&tables)
+	case "auth":
+		var tables []model.Auth
+		result = orm.Db.Find(&tables)
+	}
+
+	return result
 }
+
+func findone(table string, id int64) (result *gorm.DB) {
+	switch table {
+	case "attendee":
+		var tables []model.Attendee
+		result = orm.Db.First(&tables, id)
+	case "auth":
+		var tables []model.Auth
+		result = orm.Db.First(&tables, id)
+	}
+	return result
+}
+*/
