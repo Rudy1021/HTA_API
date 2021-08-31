@@ -11,11 +11,11 @@ type Attendee struct {
 }
 
 type Countersign struct {
-	C_id        *int
-	Dep_id      int
-	Feedback    string
-	Create_time time.Time
-	Status      bool
+	C_id        *int      `gorm:"<-:primary_key" json:"c_id"`
+	Dep_id      int       `json:"dep_id"`
+	Feedback    string    `json:"feedback"`
+	Create_time time.Time `json:"create_time"`
+	Status      bool      `json:"status"`
 }
 
 // type CountSign struct {
@@ -27,248 +27,248 @@ type Countersign struct {
 // }
 
 type Customer struct {
-	C_id        int
-	Short_name  string
-	Eng_name    string
-	Name        string
-	Zip_code    string
-	Address     string
-	Tel         string
-	Fax         string
-	Email       string
-	Map         string
-	Creater     string
-	Create_time time.Time
+	C_id        int       `json:"dep_id"`
+	Short_name  string    `json:"short_name"`
+	Eng_name    string    `json:"eng_name"`
+	Name        string    `json:"name"`
+	Zip_code    string    `json:"zip_code"`
+	Address     string    `json:"address"`
+	Tel         string    `json:"tel"`
+	Fax         string    `json:"fax"`
+	Email       string    `json:"email"`
+	Map         string    `json:"map"`
+	Creater     string    `json:"creater"`
+	Create_time time.Time `json:"create_time"`
 }
 
 type Customer_demand struct {
-	Id                int
-	Customer_id       int
-	Task_name         string
-	Budget            string
-	Remarks           string
-	Extend_type_id    int
-	Extend_rem        string
-	Est_quantity      int
-	Countersign_id    []int
-	Meeting_id        []int
-	Date_for_recive   time.Time
-	Task_id           []int
-	Accept            bool
-	Date_for_devlop   time.Time
-	Eva_report        bool
-	Date_for_expected time.Time
-	Date_for_done     time.Time
-	Project_code      string
-	Salesman_id       int
-	File_id           int
-	Creater           int
-	Create_time       time.Time
+	Id                int       `json:"id"`
+	Customer_id       int       `json:"customer_id"`
+	Task_name         string    `json:"task_name"`
+	Budget            string    `json:"budget"`
+	Remarks           string    `json:"remarks"`
+	Extend_type_id    int       `json:"extend_type_id"`
+	Extend_rem        string    `json:"extend_rem"`
+	Est_quantity      int       `json:"est_quantity"`
+	Countersign_id    []int     `json:"countersign_id"`
+	Meeting_id        []int     `json:"meeting_id"`
+	Date_for_recive   time.Time `json:"date_for_recive"`
+	Task_id           []int     `json:"task_id"`
+	Accept            bool      `json:"accept"`
+	Date_for_devlop   time.Time `json:"date_for_devlop"`
+	Eva_report        bool      `json:"eva_report"`
+	Date_for_expected time.Time `json:"date_for_expected"`
+	Date_for_done     time.Time `json:"date_for_done"`
+	Project_code      string    `json:"project_code"`
+	Salesman_id       int       `json:"salesman_id"`
+	File_id           int       `json:"file_id"`
+	Creater           int       `json:"creater"`
+	Create_time       time.Time `json:"create_time"`
 }
 
 type Department struct {
-	D_id         *int
-	Name         string
-	Eng_name     string
-	Introduction string
-	Manager      int
-	Tel          string
-	Fax          string
+	D_id         *int   `gorm:"<-:primary_key" json:"dep_id"`
+	Name         string `json:"name"`
+	Eng_name     string `json:"eng_name"`
+	Introduction string `json:"introduction"`
+	Manager      int    `json:"manager"`
+	Tel          string `json:"tel"`
+	Fax          string `json:"fax"`
 }
 
 type Files struct {
-	F_id        *int
-	Name        string
-	Path        string
-	Create_time time.Time
+	F_id        *int      `gorm:"<-:primary_key" json:"f_id"`
+	Name        string    `json:"name"`
+	Path        string    `json:"path"`
+	Create_time time.Time `json:"create_time"`
 }
 
 type Interview struct {
-	I_id          *int
-	Time          time.Time
-	Tpye          string
-	Content       string
-	Cus_demand_id int
-	Create_time   time.Time
-	Creater       int
+	I_id          *int      `gorm:"<-:primary_key" json:"i_id"`
+	Time          time.Time `json:"time"`
+	Tpye          string    `json:"tpye"`
+	Content       string    `json:"content"`
+	Cus_demand_id int       `json:"cus_demand_id"`
+	Create_time   time.Time `json:"create_time"`
+	Creater       int       `json:"creater"`
 }
 
 type Jid_demand struct {
-	J_id                      *int
-	Kind                      string
-	Type                      string
-	Urgent                    bool
-	Title                     string
-	Quantity                  int
-	Date_for_notify           time.Time
-	Information               time.Time
-	Expect_shipment_day       time.Time
-	Po_date                   time.Time
-	Order_name                string
-	Project_id                int
-	Item                      string
-	Standard                  string
-	Summary                   string
-	Remark                    string
-	Liaison                   string
-	Liaison_phone             string
-	Date_for_demand           time.Time
-	Date_for_respond          time.Time
-	Date_for_respond_of_limit time.Time
-	Customer_id               int
-	Create_time               time.Time
-	Creater                   int
+	J_id                      *int      `gorm:"<-:primary_key" json:"j_id"`
+	Kind                      string    `json:"kind"`
+	Type                      string    `json:"type"`
+	Urgent                    bool      `json:"urgent"`
+	Title                     string    `json:"title"`
+	Quantity                  int       `json:"quantity"`
+	Date_for_notify           time.Time `json:"date_for_notify"`
+	Information               time.Time `json:"information"`
+	Expect_shipment_day       time.Time `json:"expect_shipment_day"`
+	Po_date                   time.Time `json:"po_date"`
+	Order_name                string    `json:"order_name"`
+	Project_id                int       `json:"project_id"`
+	Item                      string    `json:"item"`
+	Standard                  string    `json:"standard"`
+	Summary                   string    `json:"summary"`
+	Remark                    string    `json:"remark"`
+	Liaison                   string    `json:"liaison"`
+	Liaison_phone             string    `json:"liaison_phone"`
+	Date_for_demand           time.Time `json:"date_for_demand"`
+	Date_for_respond          time.Time `json:"date_for_respond"`
+	Date_for_respond_of_limit time.Time `json:"date_for_respond_of_limit"`
+	Customer_id               int       `json:"customer_id"`
+	Create_time               time.Time `json:"creater_time"`
+	Creater                   int       `json:"creater"`
 }
 
 type Log struct {
-	L_id        *int
-	Tpye        string
-	Tablename   string
-	Sql_code    string
-	Content     string
-	User        string
-	Create_time time.Time
+	L_id        *int      `gorm:"<-:primary_key" json:"l_id"`
+	Type        string    `json:"type"`
+	Tablename   string    `json:"tablename"`
+	Sql_code    string    `json:"sql_code"`
+	Content     string    `json:"content"`
+	User        string    `json:"user"`
+	Create_time time.Time `json:"creater_time"`
 }
 
 type Machine_type struct {
-	M_id        *int
-	Code        string
-	Name        string
-	Description string
-	Create_time time.Time
+	M_id        *int      `gorm:"<-:primary_key" json:"m_id"`
+	Code        string    `json:"code"`
+	Name        string    `json:"name"`
+	Description string    `json:"description"`
+	Create_time time.Time `json:"creater_time"`
 }
 
 type Machine_work_place struct {
-	M_id            int
-	Enable          bool
-	Place           string
-	Machine_type_id int
-	Pn_code         string
-	Sn_code         string
-	Customer_id     int
-	Project_code    string
-	Remark          string
-	Create_time     time.Time
-	Creater         int
-	Task_id         []int
-	Meeting_id      []int
-	Countersign_id  []int
+	M_id            int       `json:"m_id"`
+	Enable          bool      `json:"enable"`
+	Place           string    `json:"place"`
+	Machine_type_id int       `json:"machine_type_id"`
+	Pn_code         string    `json:"pn_code"`
+	Sn_code         string    `json:"sn_code"`
+	Customer_id     int       `json:"customer_id"`
+	Project_code    string    `json:"project_code"`
+	Remark          string    `json:"remark"`
+	Create_time     time.Time `json:"create_time"`
+	Creater         int       `json:"creater"`
+	Task_id         []int     `json:"task_id"`
+	Meeting_id      []int     `json:"meeting_id"`
+	Countersign_id  []int     `json:"countersign_id"`
 }
 
 type Manufactrue_order struct {
-	M_id                *int
-	Customer_id         string
-	Order_name          string
-	Amount              string
-	Shipment_location   string
-	Open_date           time.Time
-	Close_date          time.Time
-	Expect_shipment_day time.Time
-	Sales_assistant     string
-	recipient           string
-	Contact_person      string
-	Remark              string
-	Create_time         time.Time
-	Project_id          int
-	Copy                []int
-	Status              string
-	Creater             int
+	M_id                *int      `gorm:"<-:primary_key" json:"m_id"`
+	Customer_id         string    `json:"customer_id"`
+	Order_name          string    `json:"order_name"`
+	Amount              string    `json:"amount"`
+	Shipment_location   string    `json:"shipment_location"`
+	Open_date           time.Time `json:"open_date"`
+	Close_date          time.Time `json:"close_date"`
+	Expect_shipment_day time.Time `json:"expect_shipment_day"`
+	Sales_assistant     string    `json:"sales_assistant"`
+	Recipient           string    `json:"recipient"`
+	Contact_person      string    `json:"contact_person"`
+	Remark              string    `json:"remark"`
+	Create_time         time.Time `json:"create_time"`
+	Project_id          int       `json:"project_id"`
+	Copy                []int     `json:"copy"`
+	Status              string    `json:"status"`
+	Creater             int       `json:"creater"`
 }
 
 type Meeting struct {
-	M_id        *int
-	Name        string
-	Room        string
-	Start_date  time.Time
-	End_date    time.Time
-	Create_time time.Time
-	Chairman    int
-	Attendee    int
+	M_id        *int      `gorm:"<-:primary_key" json:"m_id"`
+	Name        string    `json:"name"`
+	Room        string    `json:"room"`
+	Start_date  time.Time `json:"start_date"`
+	End_date    time.Time `json:"end_date"`
+	Create_time time.Time `json:"creater_time"`
+	Chairman    int       `json:"chairman"`
+	Attendee    int       `json:"attendee"`
 }
 
 type Notice_time struct {
-	N_id      int
-	Meet_id   int
-	Meet_time time.Time
+	N_id      int       `json:"m_id"`
+	Meet_id   int       `json:"meet_id"`
+	Meet_time time.Time `json:"meet_time"`
 }
 
 type Project struct {
-	P_id                   *int
-	Code                   string
-	Name                   string
-	Customer_id            int
-	Date_for_start         time.Time
-	Date_for_end           time.Time
-	Salesman_id            int
-	Serviceman_id          int
-	Projectman_id          int
-	Status                 string
-	Create_time            time.Time
-	Type                   string
-	Project_member         []string
-	Meeting_id             []string
-	File                   []string
-	Task_id                []string
-	Manufactrue_order_list []string
+	P_id                   *int      `gorm:"<-:primary_key" json:"p_id"`
+	Code                   string    `json:"code"`
+	Name                   string    `json:"name"`
+	Customer_id            int       `json:"customer_id"`
+	Date_for_start         time.Time `json:"date_for_start"`
+	Date_for_end           time.Time `json:"date_for_end"`
+	Salesman_id            int       `json:"salesman_id"`
+	Serviceman_id          int       `json:"serviceman_id"`
+	Projectman_id          int       `json:"projectman_id"`
+	Status                 string    `json:"status"`
+	Create_time            time.Time `json:"create_time"`
+	Type                   string    `json:"type"`
+	Project_member         []string  `json:"project_member"`
+	Meeting_id             []string  `json:"meeting_id"`
+	File                   []string  `json:"file"`
+	Task_id                []string  `json:"task_id"`
+	Manufactrue_order_list []string  `json:"manufactrue_order_list"`
 }
 
 type Sysuser struct {
-	Logonid    string
-	Name       string
-	Name1      string
-	Title      string
-	Email      string
-	Gender     string
-	Empno      string
-	Logenabled string
-	Labuser    string
-	Gboss      string
-	Sysboss    string
-	Gkind      string
-	Gkindboss  string
-	Rdopt      string
+	Logonid    string `json:"logonid"`
+	Name       string `json:"name"`
+	Name1      string `json:"name1"`
+	Title      string `json:"title"`
+	Email      string `json:"email"`
+	Gender     string `json:"gender"`
+	Empno      string `json:"empno"`
+	Logenabled string `json:"logenabled"`
+	Labuser    string `json:"labuser"`
+	Gboss      string `json:"gboss"`
+	Sysboss    string `json:"sysboss"`
+	Gkind      string `json:"gkind"`
+	Gkindboss  string `json:"gkindboss"`
+	Rdopt      string `json:"rdopt"`
 }
 
 type Task struct {
-	T_id            *int
-	Type            string
-	Name            string
-	Description     string
-	Principal       string
-	Before_id       string
-	Time_for_start  time.Time
-	Time_for_done   time.Time
-	Create_time     time.Time
-	Include_weekend bool
-	Labor_hour      int
-	Finish          bool
-	Creater         int
+	T_id            *int      `gorm:"<-:primary_key" json:"t_id"`
+	Type            string    `json:"type"`
+	Name            string    `json:"name"`
+	Description     string    `json:"description"`
+	Principal       string    `json:"Principal"`
+	Before_id       string    `json:"before_id"`
+	Time_for_start  time.Time `json:"time_for_start"`
+	Time_for_done   time.Time `json:"time_for_done"`
+	Create_time     time.Time `json:"create_time"`
+	Include_weekend bool      `json:"include_weekend"`
+	Labor_hour      int       `json:"labor_hour"`
+	Finish          bool      `json:"finish"`
+	Creater         int       `json:"creater"`
 }
 
 type Work_item struct {
-	W_id           *int
-	Name           string
-	Type           string
-	Required       bool
-	Provide_amount bool
-	Create_time    time.Time
+	W_id           *int      `gorm:"<-:primary_key" json:"w_id"`
+	Name           string    `json:"name"`
+	Type           string    `json:"type"`
+	Required       bool      `json:"required"`
+	Provide_amount bool      `json:"provide_amount"`
+	Create_time    time.Time `json:"create_time"`
 }
 
 type Work_set struct {
-	W_id              *int
-	Work_item         int
-	User_id           string
-	Date_for_expected time.Time
-	Date_for_done     time.Time
-	Amount            string
-	Remark            string
-	Create_time       time.Time
+	W_id              *int      `gorm:"<-:primary_key" json:"w_id"`
+	Work_item         int       `json:"work_item"`
+	User_id           string    `json:"user_id"`
+	Date_for_expected time.Time `json:"date_for_expected"`
+	Date_for_done     time.Time `json:"date_for_done"`
+	Amount            string    `json:"amount"`
+	Remark            string    `json:"remark"`
+	Create_time       time.Time `json:"create_time"`
 }
 
 type Auth struct {
-	A_id        int `gorm:"<-:update;primary_key" json:"a_id"`
-	Name        string
-	Path        string
-	File        string
-	Create_time *time.Time
+	A_id        int        `gorm:"<-:update;primary_key" json:"a_id"`
+	Name        string     `json:"name"`
+	Path        string     `json:"path"`
+	File        string     `json:"file"`
+	Create_time *time.Time `json:"create_time"`
 }
