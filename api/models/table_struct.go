@@ -11,7 +11,7 @@ type Attendee struct {
 }
 
 type Countersign struct {
-	C_id        *int
+	C_id        int
 	Dep_id      int
 	Feedback    string
 	Create_time time.Time
@@ -67,7 +67,7 @@ type Customer_demand struct {
 }
 
 type Department struct {
-	D_id         *int
+	D_id         int
 	Name         string
 	Eng_name     string
 	Introduction string
@@ -77,14 +77,14 @@ type Department struct {
 }
 
 type Files struct {
-	F_id        *int
+	F_id        int
 	Name        string
 	Path        string
 	Create_time time.Time
 }
 
 type Interview struct {
-	I_id          *int
+	I_id          int
 	Time          time.Time
 	Tpye          string
 	Content       string
@@ -93,8 +93,8 @@ type Interview struct {
 	Creater       int
 }
 
-type Jid_demand struct {
-	J_id                      *int
+type Jig_demand struct {
+	J_id                      int
 	Kind                      string
 	Type                      string
 	Urgent                    bool
@@ -120,8 +120,8 @@ type Jid_demand struct {
 	Creater                   int
 }
 
-type Log struct {
-	L_id        *int
+type Logs struct {
+	L_id        int
 	Tpye        string
 	Tablename   string
 	Sql_code    string
@@ -131,7 +131,7 @@ type Log struct {
 }
 
 type Machine_type struct {
-	M_id        *int
+	M_id        int
 	Code        string
 	Name        string
 	Description string
@@ -155,8 +155,8 @@ type Machine_work_place struct {
 	Countersign_id  []int
 }
 
-type Manufactrue_order struct {
-	M_id                *int
+type Manufacture_order struct {
+	M_id                int
 	Customer_id         string
 	Order_name          string
 	Amount              string
@@ -176,7 +176,7 @@ type Manufactrue_order struct {
 }
 
 type Meeting struct {
-	M_id        *int
+	M_id        int
 	Name        string
 	Room        string
 	Start_date  time.Time
@@ -193,7 +193,7 @@ type Notice_time struct {
 }
 
 type Project struct {
-	P_id                   *int
+	P_id                   int
 	Code                   string
 	Name                   string
 	Customer_id            int
@@ -230,7 +230,7 @@ type Sysuser struct {
 }
 
 type Task struct {
-	T_id            *int
+	T_id            int
 	Type            string
 	Name            string
 	Description     string
@@ -246,7 +246,7 @@ type Task struct {
 }
 
 type Work_item struct {
-	W_id           *int
+	W_id           int
 	Name           string
 	Type           string
 	Required       bool
@@ -254,8 +254,8 @@ type Work_item struct {
 	Create_time    time.Time
 }
 
-type Work_set struct {
-	W_id              *int
+type Worker_set struct {
+	W_id              int
 	Work_item         int
 	User_id           string
 	Date_for_expected time.Time

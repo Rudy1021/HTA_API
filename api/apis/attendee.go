@@ -1,19 +1,17 @@
 package apis
 
 import (
+	orm "HTA_api/api/database"
 	model "HTA_api/api/models"
 	"net/http"
 	"strconv"
-
-	//"strconv"
-	orm "HTA_api/api/database"
 
 	"github.com/gin-gonic/gin"
 )
 
 func Attendee_r(c *gin.Context) {
-	var attendee []model.Attendee
-	result := orm.Db.Find(&attendee)
+	var table []model.Attendee
+	result := orm.Db.Find(&table)
 	if result.Error != nil {
 		c.JSON(http.StatusOK, gin.H{
 			"code":    -1,
@@ -29,7 +27,7 @@ func Attendee_r(c *gin.Context) {
 }
 
 func Attendee_one(c *gin.Context) {
-	var attendee model.Attendee
+	var table model.Attendee
 	id, err := strconv.ParseInt(c.Param("id"), 10, 64)
 	if err != nil {
 		c.JSON(http.StatusOK, gin.H{
@@ -37,7 +35,7 @@ func Attendee_one(c *gin.Context) {
 			"message": err,
 		})
 	} else {
-		result := orm.Db.First(&attendee, id)
+		result := orm.Db.First(&table, id)
 		if result.Error != nil {
 			c.JSON(http.StatusOK, gin.H{
 				"code":    -1,
@@ -46,7 +44,7 @@ func Attendee_one(c *gin.Context) {
 		} else {
 			c.JSON(http.StatusOK, gin.H{
 				"code":    001,
-				"message": result,
+				"message": result.Value,
 			})
 		}
 
@@ -54,9 +52,9 @@ func Attendee_one(c *gin.Context) {
 }
 
 func Attendee_c(c *gin.Context) {
-	var attendee model.Attendee
-	c.BindJSON(&attendee)
-	result := orm.Db.Create(&attendee)
+	var table model.Attendee
+	c.BindJSON(&table)
+	result := orm.Db.Create(&table)
 	if result.Error != nil {
 		c.JSON(http.StatusOK, gin.H{
 			"code":    -1,
@@ -65,15 +63,15 @@ func Attendee_c(c *gin.Context) {
 	} else {
 		c.JSON(http.StatusOK, gin.H{
 			"code":    001,
-			"message": result,
+			"message": result.Value,
 		})
 	}
 }
 
 func Attendee_u(c *gin.Context) {
-	var attendee model.Attendee
-	c.BindJSON(&attendee)
-	result := orm.Db.Save(&attendee)
+	var table model.Attendee
+	c.BindJSON(&table)
+	result := orm.Db.Save(&table)
 	if result.Error != nil {
 		c.JSON(http.StatusOK, gin.H{
 			"code":    -1,
@@ -82,15 +80,15 @@ func Attendee_u(c *gin.Context) {
 	} else {
 		c.JSON(http.StatusOK, gin.H{
 			"code":    001,
-			"message": result,
+			"message": result.Value,
 		})
 	}
 }
 
 func Attendee_d(c *gin.Context) {
-	var attendee model.Attendee
-	c.BindJSON(&attendee)
-	result := orm.Db.Delete(&attendee)
+	var table model.Attendee
+	c.BindJSON(&table)
+	result := orm.Db.Delete(&table)
 	if result.Error != nil {
 		c.JSON(http.StatusOK, gin.H{
 			"code":    -1,
@@ -99,7 +97,7 @@ func Attendee_d(c *gin.Context) {
 	} else {
 		c.JSON(http.StatusOK, gin.H{
 			"code":    001,
-			"message": result,
+			"message": result.Value,
 		})
 	}
 }
@@ -107,7 +105,7 @@ func Attendee_d(c *gin.Context) {
 /*
 func findAll(table string) (result *gorm.DB) {
 	switch table {
-	case "attendee":
+	case "table":
 		var tables []model.Attendee
 		result = orm.Db.Find(&tables)
 	case "auth":
@@ -120,7 +118,7 @@ func findAll(table string) (result *gorm.DB) {
 
 func findone(table string, id int64) (result *gorm.DB) {
 	switch table {
-	case "attendee":
+	case "table":
 		var tables []model.Attendee
 		result = orm.Db.First(&tables, id)
 	case "auth":
