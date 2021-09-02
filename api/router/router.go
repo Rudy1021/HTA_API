@@ -9,243 +9,243 @@ import (
 func InitRouter() *gin.Engine {
 	router := gin.Default()
 	/*-----------------------Attendee-----------------------*/
-	router.GET("/SelectAttendees", Attendee_r)
+	router.GET("/Attendee/Select", Attendee_r)
 
-	router.GET("/SelectAttendee/:id", Attendee_one)
+	router.GET("/Attendee/Select/:id", Attendee_one)
 
-	router.POST("/UploadAttendee", Attendee_c)
+	router.POST("/Attendee/Upload", Attendee_c)
 
-	router.PUT("/UpdateAttendee", Attendee_u)
+	router.PUT("/Attendee/Update", Attendee_u)
 
-	router.DELETE("/DeleteAttendee", Attendee_d)
+	router.DELETE("/Attendee/Delete", Attendee_d)
 	/*-----------------------Attendee-----------------------*/
 
 	/*-----------------------Auth-----------------------*/
-	router.GET("/SelectAuths", Auth_r)
+	router.GET("/Auth/Select", Auth_r)
 
-	router.GET("/SelectAuth/:id", Auth_one)
+	router.GET("/Auth/Select/:id", Auth_one)
 
-	router.POST("/UploadAuth", Auth_c)
+	router.POST("/Auth/Upload", Auth_c)
 
-	router.PUT("/UpdateAuth", Auth_u)
+	router.PUT("/Auth/Update", Auth_u)
 
-	router.DELETE("/DeleteAuth", Auth_d)
+	router.DELETE("/Auth/Delete", Auth_d)
 	/*-----------------------Auth-----------------------*/
 
 	/*-----------------------Countersign-----------------------*/
-	router.GET("/SelectCountersigns", Countersign_r)
+	router.GET("/Countersign/Select", Countersign_r)
 
-	router.GET("/SelectCountersign/:id", Countersign_one)
+	router.GET("/Countersign/Select/:id", Countersign_one)
 
-	router.POST("/UploadCountersign", Countersign_c)
+	router.POST("/Countersign/Upload", Countersign_c)
 
-	router.PUT("/UpdateCountersign", Countersign_u)
+	router.PUT("/Countersign/Update", Countersign_u)
 
-	router.DELETE("/DeleteCountersign", Countersign_d)
+	router.DELETE("/Countersign/Delete", Countersign_d)
 	/*-----------------------Countersign-----------------------*/
 
 	/*-----------------------Customer_demand-----------------------*/
-	router.GET("/SelectCustomer_demands", Customer_demand_r)
+	router.GET("/Customer_demand/Select", Customer_demand_r)
 
-	router.GET("/SelectCustomer_demand/:id", Customer_demand_one)
+	router.GET("/Customer_demand/Select/:id", Customer_demand_one)
 
-	router.POST("/UploadCustomer_demand", Customer_demand_c)
+	router.POST("/Customer_demand/Upload", Customer_demand_c)
 
-	router.PUT("/UpdateCustomer_demand", Customer_demand_u)
+	router.PUT("/Customer_demand/Update", Customer_demand_u)
 
-	router.DELETE("/DeleteCustomer_demand", Customer_demand_d)
+	router.DELETE("/Customer_demand/Delete", Customer_demand_d)
 	/*-----------------------Customer_demand-----------------------*/
 
 	/*-----------------------Customer-----------------------*/
-	router.GET("/SelectCustomers", Customer_r)
+	router.GET("/Customer/Select", Customer_r)
 
-	router.GET("/SelectCustomer/:id", Customer_one)
+	router.GET("/Customer/Select/:id", Customer_one)
 
-	router.POST("/UploadCustomer", Customer_c)
+	router.POST("/Customer/Upload", Customer_c)
 
-	router.PUT("/UpdateCustomer", Customer_u)
+	router.PUT("/Customer/Update", Customer_u)
 
-	router.DELETE("/DeleteCustomer", Customer_d)
+	router.DELETE("/Customer/Delete", Customer_d)
 	/*-----------------------Customer-----------------------*/
 
 	/*-----------------------Department-----------------------*/
-	router.GET("/SelectDepartments", Department_r)
+	router.GET("/Department/Select", Department_r)
 
-	router.GET("/SelectDepartment/:id", Department_one)
+	router.GET("/Department/Select/:id", Department_one)
 
-	router.POST("/UploadDepartment", Department_c)
+	router.POST("/Department/Upload", Department_c)
 
-	router.PUT("/UpdateDepartment", Department_u)
+	router.PUT("/Department/Update", Department_u)
 
-	router.DELETE("/DeleteDepartment", Department_d)
+	router.DELETE("/Department/Delete", Department_d)
 	/*-----------------------Department-----------------------*/
 
 	/*-----------------------Files-----------------------*/
-	router.GET("/SelectFiles", Files_r)
+	router.GET("/Files/Select", Files_r)
 
-	router.GET("/SelectFiles/:id", Files_one)
+	router.GET("/Files/Select/:id", Files_one)
 
-	router.POST("/UploadFiles", Files_c)
+	router.POST("/Files/Upload", Files_c)
 
-	router.PUT("/UpdateFiles", Files_u)
+	router.PUT("/Files/Update", Files_u)
 
-	router.DELETE("/DeleteFiles", Files_d)
+	router.DELETE("/Files/Delete", Files_d)
 	/*-----------------------Files-----------------------*/
 
 	/*-----------------------Interview-----------------------*/
-	router.GET("/SelectInterviews", Interview_r)
+	router.GET("/Interview/Select", Interview_r)
 
-	router.GET("/SelectInterview/:id", Interview_one)
+	router.GET("/Interview/Select/:id", Interview_one)
 
-	router.POST("/UploadInterview", Interview_c)
+	router.POST("/Interview/Upload", Interview_c)
 
-	router.PUT("/UpdateInterview", Interview_u)
+	router.PUT("/Interview/Update", Interview_u)
 
-	router.DELETE("/DeleteInterview", Interview_d)
+	router.DELETE("/Interview/Delete", Interview_d)
 	/*-----------------------Interview-----------------------*/
 
 	/*-----------------------Jig_demand-----------------------*/
-	router.GET("/SelectJig_demands", Jig_demand_r)
+	router.GET("/Jig_demand/Select", Jig_demand_r)
 
-	router.GET("/SelectJig_demand/:id", Jig_demand_one)
+	router.GET("/Jig_demand/Select/:id", Jig_demand_one)
 
-	router.POST("/UploadJig_demand", Jig_demand_c)
+	router.POST("/Jig_demand/Upload", Jig_demand_c)
 
-	router.PUT("/UpdateJig_demand", Jig_demand_u)
+	router.PUT("/Jig_demand/Update", Jig_demand_u)
 
-	router.DELETE("/DeleteJig_demand", Jig_demand_d)
+	router.DELETE("/Jig_demand/Delete", Jig_demand_d)
 	/*-----------------------Jig_demand-----------------------*/
 
 	/*-----------------------Log-----------------------*/
-	router.GET("/SelectLogs", Log_r)
+	router.GET("/Log/Select", Log_r)
 
-	router.GET("/SelectLog/:id", Log_one)
+	router.GET("/Log/Select/:id", Log_one)
 
-	router.POST("/UploadLog", Log_c)
+	router.POST("/Log/Upload", Log_c)
 
-	router.PUT("/UpdateLog", Log_u)
+	router.PUT("/Log/Update", Log_u)
 
-	router.DELETE("/DeleteLog", Log_d)
+	router.DELETE("/Log/Delete", Log_d)
 	/*-----------------------Log-----------------------*/
 
 	/*-----------------------Machine_type-----------------------*/
-	router.GET("/SelectMachine_types", Machine_type_r)
+	router.GET("/Machine_type/Select", Machine_type_r)
 
-	router.GET("/SelectMachine_type/:id", Machine_type_one)
+	router.GET("/Machine_type/Select/:id", Machine_type_one)
 
-	router.POST("/UploadMachine_type", Machine_type_c)
+	router.POST("/Machine_type/Upload", Machine_type_c)
 
-	router.PUT("/UpdateMachine_type", Machine_type_u)
+	router.PUT("/Machine_type/Update", Machine_type_u)
 
-	router.DELETE("/DeleteMachine_type", Machine_type_d)
+	router.DELETE("/Machine_type/Delete", Machine_type_d)
 	/*-----------------------Machine_type-----------------------*/
 
 	/*-----------------------Machine_work_place-----------------------*/
-	router.GET("/SelectMachine_work_places", Machine_work_place_r)
+	router.GET("/Machine_work_place/Select", Machine_work_place_r)
 
-	router.GET("/SelectMachine_work_place/:id", Machine_work_place_one)
+	router.GET("/Machine_work_place/Select/:id", Machine_work_place_one)
 
-	router.POST("/UploadMachine_work_place", Machine_work_place_c)
+	router.POST("/Machine_work_place/Upload", Machine_work_place_c)
 
-	router.PUT("/UpdateMachine_work_place", Machine_work_place_u)
+	router.PUT("/Machine_work_place/Update", Machine_work_place_u)
 
-	router.DELETE("/DeleteMachine_work_place", Machine_work_place_d)
+	router.DELETE("/Machine_work_place/Delete", Machine_work_place_d)
 	/*-----------------------Machine_work_place-----------------------*/
 
 	/*-----------------------Manufacture_order-----------------------*/
-	router.GET("/SelectManufacture_orders", Manufacture_order_r)
+	router.GET("/Manufacture_order/Select", Manufacture_order_r)
 
-	router.GET("/SelectManufacture_order/:id", Manufacture_order_one)
+	router.GET("/Manufacture_order/Select/:id", Manufacture_order_one)
 
-	router.POST("/UploadManufacture_order", Manufacture_order_c)
+	router.POST("/Manufacture_order/Upload", Manufacture_order_c)
 
-	router.PUT("/UpdateManufacture_order", Manufacture_order_u)
+	router.PUT("/Manufacture_order/Update", Manufacture_order_u)
 
-	router.DELETE("/DeleteManufacture_order", Manufacture_order_d)
+	router.DELETE("/Manufacture_order/Delete", Manufacture_order_d)
 	/*-----------------------Manufacture_order-----------------------*/
 
 	/*-----------------------Meeting-----------------------*/
-	router.GET("/SelectMeetings", Meeting_r)
+	router.GET("/Meeting/Select", Meeting_r)
 
-	router.GET("/SelectMeeting/:id", Meeting_one)
+	router.GET("/Meeting/Select/:id", Meeting_one)
 
-	router.POST("/UploadMeeting", Meeting_c)
+	router.POST("/Meeting/Upload", Meeting_c)
 
-	router.PUT("/UpdateMeeting", Meeting_u)
+	router.PUT("/Meeting/Update", Meeting_u)
 
-	router.DELETE("/DeleteMeeting", Meeting_d)
+	router.DELETE("/Meeting/Delete", Meeting_d)
 	/*-----------------------Meeting-----------------------*/
 
 	/*-----------------------Notice_time-----------------------*/
-	router.GET("/SelectNotice_times", Notice_time_r)
+	router.GET("/Notice_time/Select", Notice_time_r)
 
-	router.GET("/SelectNotice_time/:id", Notice_time_one)
+	router.GET("/Notice_time/Select/:id", Notice_time_one)
 
-	router.POST("/UploadNotice_time", Notice_time_c)
+	router.POST("/Notice_time/Upload", Notice_time_c)
 
-	router.PUT("/UpdateNotice_time", Notice_time_u)
+	router.PUT("/Notice_time/Update", Notice_time_u)
 
-	router.DELETE("/DeleteNotice_time", Notice_time_d)
+	router.DELETE("/Notice_time/Delete", Notice_time_d)
 	/*-----------------------Notice_time-----------------------*/
 
 	/*-----------------------Project-----------------------*/
-	router.GET("/SelectProjects", Project_r)
+	router.GET("/Project/Select", Project_r)
 
-	router.GET("/SelectProject/:id", Project_one)
+	router.GET("/Project/Select/:id", Project_one)
 
-	router.POST("/UploadProject", Project_c)
+	router.POST("/Project/Upload", Project_c)
 
-	router.PUT("/UpdateProject", Project_u)
+	router.PUT("/Project/Update", Project_u)
 
-	router.DELETE("/DeleteProject", Project_d)
+	router.DELETE("/Project/Delete", Project_d)
 	/*-----------------------Project-----------------------*/
 
 	/*-----------------------Sysuser-----------------------*/
-	router.GET("/SelectSysusers", Sysuser_r)
+	router.GET("/Sysuser/Select", Sysuser_r)
 
-	router.GET("/SelectSysuser/:id", Sysuser_one)
+	router.GET("/Sysuser/Select/:id", Sysuser_one)
 
-	router.POST("/UploadSysuser", Sysuser_c)
+	router.POST("/Sysuser/Upload", Sysuser_c)
 
-	router.PUT("/UpdateSysuser", Sysuser_u)
+	router.PUT("/Sysuser/Update", Sysuser_u)
 
-	router.DELETE("/DeleteSysuser", Sysuser_d)
+	router.DELETE("/Sysuser/Delete", Sysuser_d)
 	/*-----------------------Sysuser-----------------------*/
 
 	/*-----------------------Task-----------------------*/
-	router.GET("/SelectTasks", Task_r)
+	router.GET("/Task/Select", Task_r)
 
-	router.GET("/SelectTask/:id", Task_one)
+	router.GET("/Task/Select/:id", Task_one)
 
-	router.POST("/UploadTask", Task_c)
+	router.POST("/Task/Upload", Task_c)
 
-	router.PUT("/UpdateTask", Task_u)
+	router.PUT("/Task/Update", Task_u)
 
-	router.DELETE("/DeleteTask", Task_d)
+	router.DELETE("/Task/Delete", Task_d)
 	/*-----------------------Task-----------------------*/
 
 	/*-----------------------Work_item-----------------------*/
-	router.GET("/SelectWork_items", Work_item_r)
+	router.GET("/Work_item/Select", Work_item_r)
 
-	router.GET("/SelectWork_item/:id", Work_item_one)
+	router.GET("/Work_item/Select/:id", Work_item_one)
 
-	router.POST("/UploadWork_item", Work_item_c)
+	router.POST("/Work_item/Upload", Work_item_c)
 
-	router.PUT("/UpdateWork_item", Work_item_u)
+	router.PUT("/Work_item/Update", Work_item_u)
 
-	router.DELETE("/DeleteWork_item", Work_item_d)
+	router.DELETE("/Work_item/Delete", Work_item_d)
 	/*-----------------------Work_item-----------------------*/
 
 	/*-----------------------Work_set-----------------------*/
-	router.GET("/SelectWorker_sets", Worker_set_r)
+	router.GET("/Worker_set/Select", Worker_set_r)
 
-	router.GET("/SelectWorker_set/:id", Worker_set_one)
+	router.GET("/Worker_set/Select/:id", Worker_set_one)
 
-	router.POST("/UploadWorker_set", Worker_set_c)
+	router.POST("/Worker_set/Upload", Worker_set_c)
 
-	router.PUT("/UpdateWorker_set", Worker_set_u)
+	router.PUT("/Worker_set/Update", Worker_set_u)
 
-	router.DELETE("/DeleteWorker_set", Worker_set_d)
+	router.DELETE("/Worker_set/Delete", Worker_set_d)
 	/*-----------------------Work_set-----------------------*/
 	return router
 }
