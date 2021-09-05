@@ -205,11 +205,11 @@ type Project struct {
 	Status                 string    `json:"status"`
 	Create_time            time.Time `json:"create_time"`
 	Type                   string    `json:"type"`
-	Project_member         []string  `json:"project_member"`
-	Meeting_id             []string  `json:"meeting_id"`
-	File                   []string  `json:"file"`
-	Task_id                []string  `json:"task_id"`
-	Manufactrue_order_list []string  `json:"manufactrue_order_list"`
+	Project_member         string    `json:"project_member"`
+	Meeting_id             string    `json:"meeting_id"`
+	File                   string    `json:"file"`
+	Task_id                string    `json:"task_id"`
+	Manufactrue_order_list string    `json:"manufactrue_order_list"`
 }
 
 type Sysuser struct {
