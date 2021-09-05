@@ -9,8 +9,8 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func Auth_r(c *gin.Context) {
-	var table []model.Auth
+func Customer_demand_r(c *gin.Context) {
+	var table []model.Customer_demand
 	result := orm.Db.Find(&table)
 	if result.Error != nil {
 		c.JSON(http.StatusOK, gin.H{
@@ -26,8 +26,8 @@ func Auth_r(c *gin.Context) {
 
 }
 
-func Auth_one(c *gin.Context) {
-	var table model.Auth
+func Customer_demand_one(c *gin.Context) {
+	var table model.Customer_demand
 	id, err := strconv.ParseInt(c.Param("id"), 10, 64)
 	if err != nil {
 		c.JSON(http.StatusOK, gin.H{
@@ -51,8 +51,8 @@ func Auth_one(c *gin.Context) {
 	}
 }
 
-func Auth_c(c *gin.Context) {
-	var table model.Auth
+func Customer_demand_c(c *gin.Context) {
+	var table model.Customer_demand
 	c.BindJSON(&table)
 	result := orm.Db.Create(&table)
 	if result.Error != nil {
@@ -68,8 +68,8 @@ func Auth_c(c *gin.Context) {
 	}
 }
 
-func Auth_u(c *gin.Context) {
-	var table model.Auth
+func Customer_demand_u(c *gin.Context) {
+	var table model.Customer_demand
 	c.BindJSON(&table)
 	result := orm.Db.Save(&table)
 	if result.Error != nil {
@@ -85,8 +85,8 @@ func Auth_u(c *gin.Context) {
 	}
 }
 
-func Auth_d(c *gin.Context) {
-	var table model.Auth
+func Customer_demand_d(c *gin.Context) {
+	var table model.Customer_demand
 	c.BindJSON(&table)
 	result := orm.Db.Delete(&table)
 	if result.Error != nil {
@@ -106,7 +106,7 @@ func Auth_d(c *gin.Context) {
 func findAll(table string) (result *gorm.DB) {
 	switch table {
 	case "table":
-		var tables []model.Auth
+		var tables []model.Customer_demand
 		result = orm.Db.Find(&tables)
 	case "auth":
 		var tables []model.Auth
@@ -119,7 +119,7 @@ func findAll(table string) (result *gorm.DB) {
 func findone(table string, id int64) (result *gorm.DB) {
 	switch table {
 	case "table":
-		var tables []model.Auth
+		var tables []model.Customer_demand
 		result = orm.Db.First(&tables, id)
 	case "auth":
 		var tables []model.Auth

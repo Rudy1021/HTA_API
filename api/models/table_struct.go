@@ -11,7 +11,7 @@ type Attendee struct {
 }
 
 type Countersign struct {
-	C_id        *int      `gorm:"<-:primary_key" json:"c_id"`
+	C_id        int       `gorm:"<-:primary_key" json:"c_id"`
 	Dep_id      int       `json:"dep_id"`
 	Feedback    string    `json:"feedback"`
 	Create_time time.Time `json:"create_time"`
@@ -93,7 +93,7 @@ type Interview struct {
 	Creater       int       `json:"creater"`
 }
 
-type Jid_demand struct {
+type Jig_demand struct {
 	J_id                      *int      `gorm:"<-:primary_key" json:"j_id"`
 	Kind                      string    `json:"kind"`
 	Type                      string    `json:"type"`
@@ -123,7 +123,7 @@ type Jid_demand struct {
 	Meeting_id                []int     `json:"meeting_id"`
 }
 
-type Log struct {
+type Logs struct {
 	L_id        *int      `gorm:"<-:primary_key" json:"l_id"`
 	Type        string    `json:"type"`
 	Tablename   string    `json:"tablename"`
@@ -155,7 +155,7 @@ type Machine_work_place struct {
 	Creater         int       `json:"creater"`
 }
 
-type Manufactrue_order struct {
+type Manufacture_order struct {
 	M_id                *int      `gorm:"<-:primary_key" json:"m_id"`
 	Customer_id         string    `json:"customer_id"`
 	Order_name          string    `json:"order_name"`
@@ -254,7 +254,7 @@ type Work_item struct {
 	Create_time    time.Time `json:"create_time"`
 }
 
-type Work_set struct {
+type Worker_set struct {
 	W_id              *int      `gorm:"<-:primary_key" json:"w_id"`
 	Work_item         int       `json:"work_item"`
 	User_id           string    `json:"user_id"`
