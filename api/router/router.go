@@ -26,185 +26,185 @@ func InitRouter() *gin.Engine {
 	router.PUT("/UpdateAuth")
 
 	router.DELETE("/DeleteAuth", Auth_d)
+	/*
+		//Countersign
+		router.GET("/SelectCountersign")
 
-	//Countersign
-	router.GET("/SelectCountersign")
+		router.POST("/UploadCountersign")
 
-	router.POST("/UploadCountersign")
+		router.PUT("/UpdateCountersign")
 
-	router.PUT("/UpdateCountersign")
+		router.DELETE("/DeleteCountersign")
 
-	router.DELETE("/DeleteCountersign")
+		//Customer
+		router.GET("/SelectCustomer")
 
-	//Customer
-	router.GET("/SelectCustomer")
+		router.POST("/UploadCustomer")
 
-	router.POST("/UploadCustomer")
+		router.PUT("/UpdateCustomer")
 
-	router.PUT("/UpdateCustomer")
+		router.DELETE("/DeleteCustomer")
 
-	router.DELETE("/DeleteCustomer")
+		//Countersign
+		router.GET("/SelectCountersign")
 
-	//Countersign
-	router.GET("/SelectCountersign")
+		router.POST("/UploadCountersign")
 
-	router.POST("/UploadCountersign")
+		router.PUT("/UpdateCountersign")
 
-	router.PUT("/UpdateCountersign")
+		router.DELETE("/DeleteCountersign")
 
-	router.DELETE("/DeleteCountersign")
+		//Customer_demand
+		router.GET("/SelectCustomerDemand")
 
-	//Customer_demand
-	router.GET("/SelectCustomerDemand")
+		router.POST("/UploadCustomerDemand")
 
-	router.POST("/UploadCustomerDemand")
+		router.PUT("/UpdateCustomerDemand")
 
-	router.PUT("/UpdateCustomerDemand")
+		router.DELETE("/DeleteCustomerDemand")
 
-	router.DELETE("/DeleteCustomerDemand")
+		//Department
+		router.GET("/SelectDepartment")
 
-	//Department
-	router.GET("/SelectDepartment")
+		router.POST("/UploadDepartment")
 
-	router.POST("/UploadDepartment")
+		router.PUT("/UpdateDepartment")
 
-	router.PUT("/UpdateDepartment")
+		router.DELETE("/DeleteDepartment")
 
-	router.DELETE("/DeleteDepartment")
+		//Files
+		router.GET("/SelectFiles")
 
-	//Files
-	router.GET("/SelectFiles")
+		router.POST("/UploadFiles")
 
-	router.POST("/UploadFiles")
+		router.PUT("/UpdateFiles")
 
-	router.PUT("/UpdateFiles")
+		router.DELETE("/DeleteFiles")
 
-	router.DELETE("/DeleteFiles")
+		//Interview
+		router.GET("/SelectInterview")
 
-	//Interview
-	router.GET("/SelectInterview")
+		router.POST("/UploadInterview")
 
-	router.POST("/UploadInterview")
+		router.PUT("/UpdateInterview")
 
-	router.PUT("/UpdateInterview")
+		router.DELETE("/DeleteInterview")
 
-	router.DELETE("/DeleteInterview")
+		//Jid_demand
+		router.GET("/SelectJidDemand")
 
-	//Jid_demand
-	router.GET("/SelectJidDemand")
+		router.POST("/UploadJidDemand")
 
-	router.POST("/UploadJidDemand")
+		router.PUT("/UpdateJidDemand")
 
-	router.PUT("/UpdateJidDemand")
+		router.DELETE("/DeleteJidDemand")
 
-	router.DELETE("/DeleteJidDemand")
+		//Log
+		router.GET("/SelectLog")
 
-	//Log
-	router.GET("/SelectLog")
+		router.POST("/UploadLog")
 
-	router.POST("/UploadLog")
+		router.PUT("/UpdateLog")
 
-	router.PUT("/UpdateLog")
+		router.DELETE("/DeleteLog")
 
-	router.DELETE("/DeleteLog")
+		//Machine_type
+		router.GET("/SelectMachineType")
 
-	//Machine_type
-	router.GET("/SelectMachineType")
+		router.POST("/UploadMachineType")
 
-	router.POST("/UploadMachineType")
+		router.PUT("/UpdateMachineType")
 
-	router.PUT("/UpdateMachineType")
+		router.DELETE("/DeleteMachineType")
 
-	router.DELETE("/DeleteMachineType")
+		//Machine_work_place
+		router.GET("/SelectMachineWorkPlace")
 
-	//Machine_work_place
-	router.GET("/SelectMachineWorkPlace")
+		router.POST("/UploadMachineWorkPlace")
 
-	router.POST("/UploadMachineWorkPlace")
+		router.PUT("/UpdateMachineWorkPlace")
 
-	router.PUT("/UpdateMachineWorkPlace")
+		router.DELETE("/DeleteMachineWorkPlace")
 
-	router.DELETE("/DeleteMachineWorkPlace")
+		//Manufactrue_order
+		router.GET("/SelectManufactrueOrder")
 
-	//Manufactrue_order
-	router.GET("/SelectManufactrueOrder")
+		router.POST("/UploadManufactrueOrder")
 
-	router.POST("/UploadManufactrueOrder")
+		router.PUT("/UpdateManufactrueOrder")
 
-	router.PUT("/UpdateManufactrueOrder")
+		router.DELETE("/DeleteManufactrueOrder")
 
-	router.DELETE("/DeleteManufactrueOrder")
+		//Meeting
+		router.GET("/SelectMeeting")
 
-	//Meeting
-	router.GET("/SelectMeeting")
+		router.POST("/UploadMeeting")
 
-	router.POST("/UploadMeeting")
+		router.PUT("/UpdateMeeting")
 
-	router.PUT("/UpdateMeeting")
+		router.DELETE("/DeleteMeeting")
 
-	router.DELETE("/DeleteMeeting")
+		//NoticeTime
+		router.GET("/SelectNoticeTime")
 
-	//NoticeTime
-	router.GET("/SelectNoticeTime")
+		router.POST("/UploadNoticeTime")
 
-	router.POST("/UploadNoticeTime")
+		router.PUT("/UpdateNoticeTime")
 
-	router.PUT("/UpdateNoticeTime")
+		router.DELETE("/DeleteNoticeTime")
 
-	router.DELETE("/DeleteNoticeTime")
+		//Project
+		router.GET("/SelectProject")
 
-	//Project
-	router.GET("/SelectProject")
+		router.POST("/UploadProject")
 
-	router.POST("/UploadProject")
+		router.PUT("/UpdateProjecte")
 
-	router.PUT("/UpdateProjecte")
+		router.DELETE("/DeleteProject")
 
-	router.DELETE("/DeleteProject")
+		//Sysuser
+		router.GET("/SelectSysuser")
 
-	//Sysuser
-	router.GET("/SelectSysuser")
+		router.POST("/UploadSysuser")
 
-	router.POST("/UploadSysuser")
+		router.PUT("/UpdateSysuser")
 
-	router.PUT("/UpdateSysuser")
+		router.DELETE("/DeleteSysuser")
 
-	router.DELETE("/DeleteSysuser")
+		//Task
+		router.GET("/SelectTask")
 
-	//Task
-	router.GET("/SelectTask")
+		router.POST("/UploadTask")
 
-	router.POST("/UploadTask")
+		router.PUT("/UpdateTask")
 
-	router.PUT("/UpdateTask")
+		router.DELETE("/DeleteTask")
 
-	router.DELETE("/DeleteTask")
+		//Work_item
+		router.GET("/SelectWorkItem")
 
-	//Work_item
-	router.GET("/SelectWorkItem")
+		router.POST("/UploadWorkItem")
 
-	router.POST("/UploadWorkItem")
+		router.PUT("/UpdateWorkItem")
 
-	router.PUT("/UpdateWorkItem")
+		router.DELETE("/DeleteWorkItem")
 
-	router.DELETE("/DeleteWorkItem")
+		//Work_set
+		router.GET("/SelectWorkSet")
 
-	//Work_set
-	router.GET("/SelectWorkSet")
+		router.POST("/UploadWorkSet")
 
-	router.POST("/UploadWorkSet")
+		router.PUT("/UpdateWorkSet")
 
-	router.PUT("/UpdateWorkSet")
+		router.DELETE("/DeleteWorkSet")
 
-	router.DELETE("/DeleteWorkSet")
+		//Auth
+		router.GET("/SelectAuth")
 
-	//Auth
-	router.GET("/SelectAuth")
+		router.POST("/UploadAuth")
 
-	router.POST("/UploadAuth")
+		router.PUT("/UpdateAuth")
 
-	router.PUT("/UpdateAuth")
-
-	router.DELETE("/DeleteAuth")
+		router.DELETE("/DeleteAuth")*/
 	return router
 }
