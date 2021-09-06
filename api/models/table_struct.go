@@ -42,9 +42,9 @@ type Customer struct {
 }
 
 type Customer_demand struct {
-	Id                int       `json:"id"`
+	C_id              int       `json:"c_id"`
 	Customer_id       int       `json:"customer_id"`
-	Task_name         string    `json:"task_name"`
+	Subject           string    `json:"subject"`
 	Budget            string    `json:"budget"`
 	Remarks           string    `json:"remarks"`
 	Extend_type_id    int       `json:"extend_type_id"`
@@ -118,6 +118,9 @@ type Jig_demand struct {
 	Customer_id               int       `json:"customer_id"`
 	Create_time               time.Time `json:"creater_time"`
 	Creater                   int       `json:"creater"`
+	Task_id                   []int     `json:"task_id"`
+	Countersign_id            []int     `json:"countersign_id"`
+	Meeting_id                []int     `json:"meeting_id"`
 }
 
 type Logs struct {
@@ -150,9 +153,6 @@ type Machine_work_place struct {
 	Remark          string    `json:"remark"`
 	Create_time     time.Time `json:"create_time"`
 	Creater         int       `json:"creater"`
-	Task_id         []int     `json:"task_id"`
-	Meeting_id      []int     `json:"meeting_id"`
-	Countersign_id  []int     `json:"countersign_id"`
 }
 
 type Manufacture_order struct {
@@ -205,11 +205,11 @@ type Project struct {
 	Status                 string    `json:"status"`
 	Create_time            time.Time `json:"create_time"`
 	Type                   string    `json:"type"`
-	Project_member         []string  `json:"project_member"`
-	Meeting_id             []string  `json:"meeting_id"`
-	File                   []string  `json:"file"`
-	Task_id                []string  `json:"task_id"`
-	Manufactrue_order_list []string  `json:"manufactrue_order_list"`
+	Project_member         string    `json:"project_member"`
+	Meeting_id             string    `json:"meeting_id"`
+	File                   string    `json:"file"`
+	Task_id                string    `json:"task_id"`
+	Manufactrue_order_list string    `json:"manufactrue_order_list"`
 }
 
 type Sysuser struct {
@@ -238,11 +238,11 @@ type Task struct {
 	Before_id       string    `json:"before_id"`
 	Time_for_start  time.Time `json:"time_for_start"`
 	Time_for_done   time.Time `json:"time_for_done"`
-	Create_time     time.Time `json:"create_time"`
 	Include_weekend bool      `json:"include_weekend"`
 	Labor_hour      int       `json:"labor_hour"`
 	Finish          bool      `json:"finish"`
 	Creater         int       `json:"creater"`
+	Create_time     time.Time `json:"create_time"`
 }
 
 type Work_item struct {
@@ -261,7 +261,7 @@ type Worker_set struct {
 	Date_for_expected time.Time `json:"date_for_expected"`
 	Date_for_done     time.Time `json:"date_for_done"`
 	Amount            string    `json:"amount"`
-	Remark            string    `json:"remark"`
+	Remarks           string    `json:"remarks"`
 	Create_time       time.Time `json:"create_time"`
 }
 
