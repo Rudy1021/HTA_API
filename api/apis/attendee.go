@@ -7,6 +7,7 @@ import (
 	"strconv"
 
 	"github.com/gin-gonic/gin"
+	//使用 gorm 作為 orm 工具
 )
 
 func Attendee_r(c *gin.Context) {
@@ -23,10 +24,10 @@ func Attendee_r(c *gin.Context) {
 			"result": result.Value,
 		})
 	}
-
 }
 
 func Attendee_one(c *gin.Context) {
+
 	var table model.Attendee
 	id, err := strconv.ParseInt(c.Param("id"), 10, 64)
 	if err != nil {
@@ -49,6 +50,13 @@ func Attendee_one(c *gin.Context) {
 		}
 
 	}
+	/*
+				result := findone("attendee", 1)
+		c.JSON(http.StatusOK, gin.H{
+			"code":    -1,
+			"message": result,
+		})
+	*/
 }
 
 func Attendee_c(c *gin.Context) {
@@ -105,7 +113,7 @@ func Attendee_d(c *gin.Context) {
 /*
 func findAll(table string) (result *gorm.DB) {
 	switch table {
-	case "table":
+	case "attendee":
 		var tables []model.Attendee
 		result = orm.Db.Find(&tables)
 	case "auth":
@@ -116,11 +124,13 @@ func findAll(table string) (result *gorm.DB) {
 	return result
 }
 
+
 func findone(table string, id int64) (result *gorm.DB) {
+	var b interface{}
 	switch table {
-	case "table":
-		var tables []model.Attendee
-		result = orm.Db.First(&tables, id)
+	case "attendee":
+		b = new([]model.Attendee)
+		result = orm.Db.First(&b, id)
 	case "auth":
 		var tables []model.Auth
 		result = orm.Db.First(&tables, id)
