@@ -39,7 +39,7 @@ func Project_one(c *gin.Context) {
 		if result.Error != nil {
 			c.JSON(http.StatusOK, gin.H{
 				"code":    -1,
-				"message": err,
+				"message": result.Error,
 			})
 		} else {
 			c.JSON(http.StatusOK, gin.H{

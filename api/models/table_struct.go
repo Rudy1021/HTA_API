@@ -11,7 +11,7 @@ type Attendee struct {
 }
 
 type Countersign struct {
-	C_id        int       `gorm:"<-:primary_key" json:"c_id"`
+	C_id        int       `gorm:"<-:update;primary_key" json:"c_id"`
 	Dep_id      int       `json:"dep_id"`
 	Feedback    string    `json:"feedback"`
 	Create_time time.Time `json:"create_time"`
@@ -27,7 +27,7 @@ type Countersign struct {
 // }
 
 type Customer struct {
-	C_id        int       `json:"dep_id"`
+	C_id        int       `gorm:"<-:update;primary_key" json:"c_id"`
 	Short_name  string    `json:"short_name"`
 	Eng_name    string    `json:"eng_name"`
 	Name        string    `json:"name"`
@@ -42,7 +42,7 @@ type Customer struct {
 }
 
 type Customer_demand struct {
-	C_id              int       `json:"c_id"`
+	C_id              int       `gorm:"<-:update;primary_key" json:"c_id"`
 	Customer_id       int       `json:"customer_id"`
 	Subject           string    `json:"subject"`
 	Budget            string    `json:"budget"`
@@ -67,7 +67,7 @@ type Customer_demand struct {
 }
 
 type Department struct {
-	D_id         *int   `gorm:"<-:primary_key" json:"dep_id"`
+	D_id         int    `gorm:"<-:update;primary_key" json:"d_id"`
 	Name         string `json:"name"`
 	Eng_name     string `json:"eng_name"`
 	Introduction string `json:"introduction"`
@@ -77,14 +77,14 @@ type Department struct {
 }
 
 type Files struct {
-	F_id        *int      `gorm:"<-:primary_key" json:"f_id"`
+	F_id        int       `gorm:"<-:update;primary_key" json:"f_id"`
 	Name        string    `json:"name"`
 	Path        string    `json:"path"`
 	Create_time time.Time `json:"create_time"`
 }
 
 type Interview struct {
-	I_id          *int      `gorm:"<-:primary_key" json:"i_id"`
+	I_id          int       `gorm:"<-:update;primary_key" json:"i_id"`
 	Time          time.Time `json:"time"`
 	Tpye          string    `json:"tpye"`
 	Content       string    `json:"content"`
@@ -94,7 +94,7 @@ type Interview struct {
 }
 
 type Jig_demand struct {
-	J_id                      *int      `gorm:"<-:primary_key" json:"j_id"`
+	J_id                      int       `gorm:"<-:update;primary_key" json:"j_id"`
 	Kind                      string    `json:"kind"`
 	Type                      string    `json:"type"`
 	Urgent                    bool      `json:"urgent"`
@@ -124,7 +124,7 @@ type Jig_demand struct {
 }
 
 type Logs struct {
-	L_id        *int      `gorm:"<-:primary_key" json:"l_id"`
+	L_id        int       `gorm:"<-:update;primary_key" json:"l_id"`
 	Type        string    `json:"type"`
 	Tablename   string    `json:"tablename"`
 	Sql_code    string    `json:"sql_code"`
@@ -134,7 +134,7 @@ type Logs struct {
 }
 
 type Machine_type struct {
-	M_id        *int      `gorm:"<-:primary_key" json:"m_id"`
+	M_id        int       `gorm:"<-:update;primary_key" json:"m_id"`
 	Code        string    `json:"code"`
 	Name        string    `json:"name"`
 	Description string    `json:"description"`
@@ -142,7 +142,7 @@ type Machine_type struct {
 }
 
 type Machine_work_place struct {
-	M_id            int       `json:"m_id"`
+	M_id            int       `gorm:"<-:update;primary_key" json:"m_id"`
 	Enable          bool      `json:"enable"`
 	Place           string    `json:"place"`
 	Machine_type_id int       `json:"machine_type_id"`
@@ -156,7 +156,7 @@ type Machine_work_place struct {
 }
 
 type Manufacture_order struct {
-	M_id                *int      `gorm:"<-:primary_key" json:"m_id"`
+	M_id                int       `gorm:"<-:update;primary_key" json:"m_id"`
 	Customer_id         string    `json:"customer_id"`
 	Order_name          string    `json:"order_name"`
 	Amount              string    `json:"amount"`
@@ -176,7 +176,7 @@ type Manufacture_order struct {
 }
 
 type Meeting struct {
-	M_id        *int      `gorm:"<-:primary_key" json:"m_id"`
+	M_id        int       `gorm:"<-:update;primary_key" json:"m_id"`
 	Name        string    `json:"name"`
 	Room        string    `json:"room"`
 	Start_date  time.Time `json:"start_date"`
@@ -187,13 +187,13 @@ type Meeting struct {
 }
 
 type Notice_time struct {
-	N_id      int       `json:"m_id"`
+	N_id      int       `gorm:"<-:update;primary_key" json:"n_id"`
 	Meet_id   int       `json:"meet_id"`
 	Meet_time time.Time `json:"meet_time"`
 }
 
 type Project struct {
-	P_id                   *int      `gorm:"<-:primary_key" json:"p_id"`
+	P_id                   int       `gorm:"<-:update;primary_key" json:"p_id"`
 	Code                   string    `json:"code"`
 	Name                   string    `json:"name"`
 	Customer_id            int       `json:"customer_id"`
@@ -213,7 +213,7 @@ type Project struct {
 }
 
 type Sysuser struct {
-	Logonid    string `json:"logonid"`
+	Logonid    string `gorm:"<-:update;primary_key" json:"logonid"`
 	Name       string `json:"name"`
 	Name1      string `json:"name1"`
 	Title      string `json:"title"`
@@ -230,7 +230,7 @@ type Sysuser struct {
 }
 
 type Task struct {
-	T_id            *int      `gorm:"<-:primary_key" json:"t_id"`
+	T_id            int       `gorm:"<-:update;primary_key" json:"t_id"`
 	Type            string    `json:"type"`
 	Name            string    `json:"name"`
 	Description     string    `json:"description"`
@@ -246,7 +246,7 @@ type Task struct {
 }
 
 type Work_item struct {
-	W_id           *int      `gorm:"<-:primary_key" json:"w_id"`
+	W_id           int       `gorm:"<-:update;primary_key" json:"w_id"`
 	Name           string    `json:"name"`
 	Type           string    `json:"type"`
 	Required       bool      `json:"required"`
@@ -255,7 +255,7 @@ type Work_item struct {
 }
 
 type Worker_set struct {
-	W_id              *int      `gorm:"<-:primary_key" json:"w_id"`
+	W_id              int       `gorm:"<-:update;primary_key" json:"w_id"`
 	Work_item         int       `json:"work_item"`
 	User_id           string    `json:"user_id"`
 	Date_for_expected time.Time `json:"date_for_expected"`
