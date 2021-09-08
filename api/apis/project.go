@@ -3,6 +3,7 @@ package apis
 import (
 	orm "HTA_api/api/database"
 	model "HTA_api/api/models"
+	"fmt"
 	"net/http"
 	"strconv"
 
@@ -54,7 +55,8 @@ func Project_one(c *gin.Context) {
 func Project_c(c *gin.Context) {
 	var table model.Project
 	c.BindJSON(&table)
-	result := orm.Db.Create(&table)
+	fmt.Println(&table)
+	result := orm.Db.Debug().Create(&table)
 	if result.Error != nil {
 		c.JSON(http.StatusOK, gin.H{
 			"code":    -1,

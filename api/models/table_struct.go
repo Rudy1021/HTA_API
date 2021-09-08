@@ -42,7 +42,7 @@ type Customer struct {
 }
 
 type Customer_demand struct {
-	C_id              int       `json:"c_id"`
+	C_id              int       `gorm:"<-:primary_key" json:"c_id" `
 	Customer_id       int       `json:"customer_id"`
 	Subject           string    `json:"subject"`
 	Budget            string    `json:"budget"`
@@ -50,10 +50,10 @@ type Customer_demand struct {
 	Extend_type_id    int       `json:"extend_type_id"`
 	Extend_rem        string    `json:"extend_rem"`
 	Est_quantity      int       `json:"est_quantity"`
-	Countersign_id    []int     `json:"countersign_id"`
-	Meeting_id        []int     `json:"meeting_id"`
+	Countersign_id    []int     `json:"countersign_id" gorm:"default:'{}'"`
+	Meeting_id        []int     `json:"meeting_id" gorm:"default:'{}'"`
 	Date_for_recive   time.Time `json:"date_for_recive"`
-	Task_id           []int     `json:"task_id"`
+	Task_id           []int     `json:"task_id" gorm:"default:'{}'"`
 	Accept            bool      `json:"accept"`
 	Date_for_devlop   time.Time `json:"date_for_devlop"`
 	Eva_report        bool      `json:"eva_report"`
@@ -61,7 +61,7 @@ type Customer_demand struct {
 	Date_for_done     time.Time `json:"date_for_done"`
 	Project_code      string    `json:"project_code"`
 	Salesman_id       int       `json:"salesman_id"`
-	File_id           int       `json:"file_id"`
+	File_id           []int     `json:"file_id" gorm:"default:'{}'"`
 	Creater           int       `json:"creater"`
 	Create_time       time.Time `json:"create_time"`
 }
@@ -118,9 +118,9 @@ type Jig_demand struct {
 	Customer_id               int       `json:"customer_id"`
 	Create_time               time.Time `json:"creater_time"`
 	Creater                   int       `json:"creater"`
-	Task_id                   []int     `json:"task_id"`
-	Countersign_id            []int     `json:"countersign_id"`
-	Meeting_id                []int     `json:"meeting_id"`
+	Task_id                   []int     `json:"task_id" gorm:"default:'{}'"`
+	Countersign_id            []int     `json:"countersign_id" gorm:"default:'{}'"`
+	Meeting_id                []int     `json:"meeting_id" gorm:"default:'{}'"`
 }
 
 type Logs struct {
@@ -170,7 +170,7 @@ type Manufacture_order struct {
 	Remark              string    `json:"remark"`
 	Create_time         time.Time `json:"create_time"`
 	Project_id          int       `json:"project_id"`
-	Copy                []int     `json:"copy"`
+	Copy                []int     `json:"copy" gorm:"default:'{}'"`
 	Status              string    `json:"status"`
 	Creater             int       `json:"creater"`
 }
@@ -193,23 +193,23 @@ type Notice_time struct {
 }
 
 type Project struct {
-	P_id                   *int      `gorm:"<-:primary_key" json:"p_id"`
-	Code                   string    `json:"code"`
-	Name                   string    `json:"name"`
-	Customer_id            int       `json:"customer_id"`
-	Date_for_start         time.Time `json:"date_for_start"`
-	Date_for_end           time.Time `json:"date_for_end"`
-	Salesman_id            int       `json:"salesman_id"`
-	Serviceman_id          int       `json:"serviceman_id"`
-	Projectman_id          int       `json:"projectman_id"`
-	Status                 string    `json:"status"`
-	Create_time            time.Time `json:"create_time"`
-	Type                   string    `json:"type"`
-	Project_member         string    `json:"project_member"`
-	Meeting_id             string    `json:"meeting_id"`
-	File                   string    `json:"file"`
-	Task_id                string    `json:"task_id"`
-	Manufactrue_order_list string    `json:"manufactrue_order_list"`
+	P_id                   *int      `gorm:"<-:update;primary_key" json:"p_id"`
+	Code                   string    `gorm:"<-" json:"code"`
+	Name                   string    `gorm:"<-" json:"name"`
+	Customer_id            int       `gorm:"<-" json:"customer_id"`
+	Date_for_start         time.Time `gorm:"<-" json:"date_for_start"`
+	Date_for_end           time.Time `gorm:"<-" json:"date_for_end"`
+	Salesman_id            int       `gorm:"<-" json:"salesman_id"`
+	Serviceman_id          int       `gorm:"<-" json:"serviceman_id"`
+	Projectman_id          int       `gorm:"<-" json:"projectman_id"`
+	Status                 string    `gorm:"<-" json:"status"`
+	Create_time            time.Time `gorm:"<-" json:"create_time"`
+	Type                   string    `gorm:"<-" json:"type"`
+	Project_member         string    `gorm:"<-" json:"project_member" gorm:"default:'{}'"`
+	Meeting_id             string    `gorm:"<-" json:"meeting_id" gorm:"default:'{}'"`
+	File                   string    `gorm:"<-" json:"file" gorm:"default:'{}'"`
+	Task_id                string    `gorm:"<-" json:"task_id" gorm:"default:'{}'"`
+	Manufactrue_order_list string    `gorm:"<-" json:"manufactrue_order_list" gorm:"default:'{}'"`
 }
 
 type Sysuser struct {
@@ -234,7 +234,7 @@ type Task struct {
 	Type            string    `json:"type"`
 	Name            string    `json:"name"`
 	Description     string    `json:"description"`
-	Principal       string    `json:"Principal"`
+	Principal       string    `json:"principal"`
 	Before_id       string    `json:"before_id"`
 	Time_for_start  time.Time `json:"time_for_start"`
 	Time_for_done   time.Time `json:"time_for_done"`
