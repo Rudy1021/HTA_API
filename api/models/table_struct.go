@@ -52,10 +52,10 @@ type Customer_demand struct {
 	Extend_type_id    int           `json:"extend_type_id"`
 	Extend_rem        string        `json:"extend_rem"`
 	Est_quantity      int           `json:"est_quantity"`
-	Countersign_id    pq.Int64Array `json:"countersign_id" gorm:"default:'{}';type:integer[]"`
-	Meeting_id        pq.Int64Array `json:"meeting_id" gorm:"default:'{}';type:integer[]"`
+	Countersign_id    pq.Int64Array `json:"countersign_id" gorm:"type:integer[]"`
+	Meeting_id        pq.Int64Array `json:"meeting_id" gorm:"type:integer[]"`
 	Date_for_recive   time.Time     `json:"date_for_recive"`
-	Task_id           pq.Int64Array `json:"task_id" gorm:"default:'{}';type:integer[]"`
+	Task_id           pq.Int64Array `json:"task_id" gorm:"type:integer[]"`
 	Accept            bool          `json:"accept"`
 	Date_for_devlop   time.Time     `json:"date_for_devlop"`
 	Eva_report        bool          `json:"eva_report"`
@@ -63,7 +63,7 @@ type Customer_demand struct {
 	Date_for_done     time.Time     `json:"date_for_done"`
 	Project_code      string        `json:"project_code"`
 	Salesman_id       int           `json:"salesman_id"`
-	File_id           pq.Int64Array `json:"file_id" gorm:"default:'{}';type:integer[]"`
+	File_id           pq.Int64Array `json:"file_id" gorm:"type:integer[]"`
 	Creater           int           `json:"creater"`
 	Create_time       time.Time     `json:"create_time"`
 }
@@ -195,23 +195,23 @@ type Notice_time struct {
 }
 
 type Project struct {
-	P_id                   int       `gorm:"<-:update;primary_key" json:"p_id"`
-	Code                   string    `json:"code"`
-	Name                   string    `json:"name"`
-	Customer_id            int       `json:"customer_id"`
-	Date_for_start         time.Time `json:"date_for_start"`
-	Date_for_end           time.Time `json:"date_for_end"`
-	Salesman_id            int       `json:"salesman_id"`
-	Serviceman_id          int       `json:"serviceman_id"`
-	Projectman_id          int       `json:"projectman_id"`
-	Status                 string    `json:"status"`
-	Create_time            time.Time `json:"create_time"`
-	Type                   string    `json:"type"`
-	Project_member         string    `json:"project_member"`
-	Meeting_id             string    `json:"meeting_id"`
-	File                   string    `json:"file"`
-	Task_id                string    `json:"task_id"`
-	Manufactrue_order_list string    `json:"manufactrue_order_list"`
+	P_id                   int            `gorm:"<-:update;primary_key" json:"p_id"`
+	Code                   string         `json:"code"`
+	Name                   string         `json:"name"`
+	Customer_id            int            `json:"customer_id"`
+	Date_for_start         time.Time      `json:"date_for_start"`
+	Date_for_end           time.Time      `json:"date_for_end"`
+	Salesman_id            int            `json:"salesman_id"`
+	Serviceman_id          int            `json:"serviceman_id"`
+	Projectman_id          int            `json:"projectman_id"`
+	Status                 string         `json:"status"`
+	Create_time            time.Time      `json:"create_time"`
+	Type                   string         `json:"type"`
+	Project_member         pq.StringArray `json:"project_member" gorm:"type:text[]"`
+	Meeting_id             pq.StringArray `json:"meeting_id" gorm:"type:text[]"`
+	File                   pq.StringArray `json:"file"  gorm:"type:text[]"`
+	Task_id                pq.StringArray `json:"task_id"  gorm:"type:text[]"`
+	Manufactrue_order_list pq.StringArray `json:"manufactrue_order_list"  gorm:"type:text[]"`
 }
 
 type Sysuser struct {
