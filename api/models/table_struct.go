@@ -45,7 +45,7 @@ type Customer struct {
 
 type Customer_demand struct {
 	C_id              int           `gorm:"<-:update;primary_key" json:"c_id"`
-	Customer_id       int           `json:"customer_id"`
+	Customer_name     string        `json:"customer_name"`
 	Subject           string        `json:"subject"`
 	Budget            string        `json:"budget"`
 	Remarks           string        `json:"remarks"`
@@ -62,7 +62,7 @@ type Customer_demand struct {
 	Date_for_expected time.Time     `json:"date_for_expected"`
 	Date_for_done     time.Time     `json:"date_for_done"`
 	Project_code      string        `json:"project_code"`
-	Salesman_id       int           `json:"salesman_id"`
+	Salesman_name     string        `json:"salesman_name"`
 	File_id           pq.Int64Array `json:"file_id" gorm:"type:integer[]"`
 	Creater           int           `json:"creater"`
 	Create_time       time.Time     `json:"create_time"`
@@ -201,9 +201,9 @@ type Project struct {
 	Customer_id            int            `json:"customer_id"`
 	Date_for_start         time.Time      `json:"date_for_start"`
 	Date_for_end           time.Time      `json:"date_for_end"`
-	Salesman_id            int            `json:"salesman_id"`
-	Serviceman_id          int            `json:"serviceman_id"`
-	Projectman_id          int            `json:"projectman_id"`
+	Salesman_name          string         `json:"salesman_name"`
+	Serviceman_name        string         `json:"serviceman_name"`
+	Projectman_name        string         `json:"projectman_name"`
 	Status                 string         `json:"status"`
 	Create_time            time.Time      `json:"create_time"`
 	Type                   string         `json:"type"`
