@@ -198,7 +198,7 @@ type Project struct {
 	P_id                   int            `gorm:"<-:update;primary_key" json:"p_id"`
 	Code                   string         `json:"code"`
 	Name                   string         `json:"name"`
-	Customer_name          int            `json:"customer_name"`
+	Customer_name          string         `json:"customer_name"`
 	Date_for_start         time.Time      `json:"date_for_start"`
 	Date_for_end           time.Time      `json:"date_for_end"`
 	Salesman_name          string         `json:"salesman_name"`
