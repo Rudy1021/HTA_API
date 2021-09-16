@@ -90,7 +90,7 @@ func InitRouter() *gin.Engine {
 
 	router.PUT("/Files/Update", Files_u)
 
-	router.DELETE("/Files/Delete", Files_d)
+	router.DELETE("/Files/Delete/:id", Files_d)
 	/*-----------------------Files-----------------------*/
 
 	/*-----------------------Interview-----------------------*/

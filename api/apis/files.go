@@ -87,18 +87,25 @@ func Files_u(c *gin.Context) {
 
 func Files_d(c *gin.Context) {
 	var table model.Files
-	c.BindJSON(&table)
-	result := orm.Db.Delete(&table)
-	if result.Error != nil {
+	id, err := strconv.ParseInt(c.Param("id"), 10, 64)
+	if err != nil {
 		c.JSON(http.StatusOK, gin.H{
 			"code":    -1,
-			"message": result.Error,
+			"message": err,
 		})
 	} else {
-		c.JSON(http.StatusOK, gin.H{
-			"code":    001,
-			"message": result.Value,
-		})
+		result := orm.Db.Delete(&table, id)
+		if result.Error != nil {
+			c.JSON(http.StatusOK, gin.H{
+				"code":    -1,
+				"message": err,
+			})
+		} else {
+			c.JSON(http.StatusOK, gin.H{
+				"code":    001,
+				"message": result.Value,
+			})
+		}
 	}
 }
 
