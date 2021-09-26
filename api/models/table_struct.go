@@ -274,3 +274,8 @@ type Auth struct {
 	File        string     `json:"file"`
 	Create_time *time.Time `json:"create_time"`
 }
+
+type Test_task struct {
+	T_id        int  `gorm:"<-:update;primary_key" json:"t_id"`
+	Description JSON `json:"description"`
+}

@@ -3,15 +3,13 @@ package apis
 import (
 	orm "HTA_api/api/database"
 	model "HTA_api/api/models"
-	"fmt"
 	"net/http"
-	"strconv"
 
 	"github.com/gin-gonic/gin"
 )
 
-func Project_r(c *gin.Context) {
-	var table []model.Project
+func Test_Task_r(c *gin.Context) {
+	var table []model.Task
 	result := orm.Db.Find(&table)
 	if result.Error != nil {
 		c.JSON(http.StatusOK, gin.H{
@@ -27,8 +25,9 @@ func Project_r(c *gin.Context) {
 
 }
 
-func Project_one(c *gin.Context) {
-	var table model.Project
+/*
+func Task_one(c *gin.Context) {
+	var table model.Task
 	id, err := strconv.ParseInt(c.Param("id"), 10, 64)
 	if err != nil {
 		c.JSON(http.StatusOK, gin.H{
@@ -40,7 +39,7 @@ func Project_one(c *gin.Context) {
 		if result.Error != nil {
 			c.JSON(http.StatusOK, gin.H{
 				"code":    -1,
-				"message": result.Error,
+				"message": err,
 			})
 		} else {
 			c.JSON(http.StatusOK, gin.H{
@@ -52,11 +51,13 @@ func Project_one(c *gin.Context) {
 	}
 }
 
-func Project_c(c *gin.Context) {
-	var table model.Project
+*/
+
+func Test_Task_c(c *gin.Context) {
+	var table model.Test_task
+	//fmt.Println(c.BindJSON())
 	c.BindJSON(&table)
-	fmt.Println(&table)
-	result := orm.Db.Debug().Create(&table)
+	result := orm.Db.Create(&table)
 	if result.Error != nil {
 		c.JSON(http.StatusOK, gin.H{
 			"code":    -1,
@@ -70,27 +71,10 @@ func Project_c(c *gin.Context) {
 	}
 }
 
-func Project_u(c *gin.Context) {
-	var table model.Project
+func Test_Task_u(c *gin.Context) {
+	var table model.Task
 	c.BindJSON(&table)
-	result := orm.Db.Debug().Update(&table)
-	if result.Error != nil {
-		c.JSON(http.StatusOK, gin.H{
-			"code":    -1,
-			"message": result.Error,
-		})
-	} else {
-		c.JSON(http.StatusOK, gin.H{
-			"code":    001,
-			"message": result.Value,
-		})
-	}
-}
-
-func Project_d(c *gin.Context) {
-	var table model.Project
-	c.BindJSON(&table)
-	result := orm.Db.Delete(&table)
+	result := orm.Db.Save(&table)
 	if result.Error != nil {
 		c.JSON(http.StatusOK, gin.H{
 			"code":    -1,
@@ -108,7 +92,7 @@ func Project_d(c *gin.Context) {
 func findAll(table string) (result *gorm.DB) {
 	switch table {
 	case "table":
-		var tables []model.Project
+		var tables []model.Task
 		result = orm.Db.Find(&tables)
 	case "auth":
 		var tables []model.Auth
@@ -121,7 +105,7 @@ func findAll(table string) (result *gorm.DB) {
 func findone(table string, id int64) (result *gorm.DB) {
 	switch table {
 	case "table":
-		var tables []model.Project
+		var tables []model.Task
 		result = orm.Db.First(&tables, id)
 	case "auth":
 		var tables []model.Auth
