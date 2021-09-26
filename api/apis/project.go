@@ -73,7 +73,7 @@ func Project_c(c *gin.Context) {
 func Project_u(c *gin.Context) {
 	var table model.Project
 	c.BindJSON(&table)
-	result := orm.Db.Select(&table).Debug().Update(&table)
+	result := orm.Db.Model(&table).Debug().Update(&table)
 	if result.Error != nil {
 		c.JSON(http.StatusOK, gin.H{
 			"code":    -1,
