@@ -212,6 +212,10 @@ type Project struct {
 	File                   pq.StringArray `json:"file"  gorm:"type:text[]"`
 	Task_id                pq.StringArray `json:"task_id"  gorm:"type:text[]"`
 	Manufactrue_order_list pq.StringArray `json:"manufactrue_order_list"  gorm:"type:text[]"`
+	Date_for_pay           time.Time      `json:"date_for_pay"`
+	Date_for_delivery      time.Time      `json:"date_for_delivery"`
+	Date_for_check         time.Time      `json:"date_for_check"`
+	Inner_id               int            `json:"inner_id"`
 }
 
 type Sysuser struct {
