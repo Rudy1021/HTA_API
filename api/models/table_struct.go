@@ -3,6 +3,7 @@ package models
 import (
 	"time"
 
+	"github.com/jinzhu/gorm/dialects/postgres"
 	"github.com/lib/pq"
 )
 
@@ -280,6 +281,6 @@ type Auth struct {
 }
 
 type Test_task struct {
-	T_id        int  `gorm:"<-:update;primary_key" json:"t_id"`
-	Description JSON `json:"description"`
+	T_id   int            `gorm:"<-:update;primary_key" json:"t_id"`
+	Detail postgres.Jsonb `gorm:"default:'{}'" json:"detail"`
 }

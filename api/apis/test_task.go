@@ -9,7 +9,7 @@ import (
 )
 
 func Test_Task_r(c *gin.Context) {
-	var table []model.Task
+	var table []model.Test_task
 	result := orm.Db.Find(&table)
 	if result.Error != nil {
 		c.JSON(http.StatusOK, gin.H{
@@ -55,9 +55,8 @@ func Task_one(c *gin.Context) {
 
 func Test_Task_c(c *gin.Context) {
 	var table model.Test_task
-	//fmt.Println(c.BindJSON())
 	c.BindJSON(&table)
-	result := orm.Db.Create(&table)
+	result := orm.Db.Debug().Create(&table)
 	if result.Error != nil {
 		c.JSON(http.StatusOK, gin.H{
 			"code":    -1,
