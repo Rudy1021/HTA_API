@@ -4,6 +4,7 @@ import (
 	orm "HTA_api/api/database"
 	model "HTA_api/api/models"
 	"net/http"
+	"strconv"
 
 	"github.com/gin-gonic/gin"
 )
@@ -25,9 +26,8 @@ func Test_Task_r(c *gin.Context) {
 
 }
 
-/*
-func Task_one(c *gin.Context) {
-	var table model.Task
+func Test_Task_one(c *gin.Context) {
+	var table model.Test_task
 	id, err := strconv.ParseInt(c.Param("id"), 10, 64)
 	if err != nil {
 		c.JSON(http.StatusOK, gin.H{
@@ -50,8 +50,6 @@ func Task_one(c *gin.Context) {
 
 	}
 }
-
-*/
 
 func Test_Task_c(c *gin.Context) {
 	var table model.Test_task
