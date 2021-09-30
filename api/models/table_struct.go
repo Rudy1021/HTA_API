@@ -170,7 +170,7 @@ type Manufacture_order struct {
 	Sales_assistant     string        `json:"sales_assistant"`
 	Recipient           string        `json:"recipient"`
 	Contact_person      string        `json:"contact_person"`
-	Remark              string        `json:"remark"`
+	Remarks             string        `json:"remark"`
 	Create_time         time.Time     `json:"create_time"`
 	Project_id          int           `json:"project_id"`
 	Copy                pq.Int64Array `json:"copy" gorm:"type:integer[]"`
