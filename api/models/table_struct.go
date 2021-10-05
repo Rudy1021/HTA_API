@@ -160,7 +160,7 @@ type Machine_work_place struct {
 
 type Manufacture_order struct {
 	M_id                int           `gorm:"<-:update;primary_key" json:"m_id"`
-	Customer            string        `json:"customer"`
+	Customer            string        `json:"customer_id"`
 	Order_name          string        `json:"order_name"`
 	Amount              string        `json:"amount"`
 	Shipment_location   string        `json:"shipment_location"`
