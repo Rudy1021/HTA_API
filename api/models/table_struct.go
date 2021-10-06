@@ -67,6 +67,8 @@ type Customer_demand struct {
 	File_id           pq.Int64Array `json:"file_id" gorm:"type:integer[]"`
 	Creater           int           `json:"creater"`
 	Create_time       time.Time     `json:"create_time"`
+	Code              string        `json:"code"`
+	Status            string        `json:"status"`
 }
 
 type Department struct {
