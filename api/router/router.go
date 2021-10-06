@@ -251,7 +251,7 @@ func InitRouter() *gin.Engine {
 
 	router.GET("/TestTask/Select", Test_Task_r)
 
-	//router.GET("/Task/Select/:id", Test_Task_one)
+	router.GET("/TestTask/Select/:id", Test_Task_one)
 
 	router.POST("/TestTask/Upload", Test_Task_c)
 
