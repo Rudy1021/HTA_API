@@ -213,7 +213,7 @@ type Project struct {
 	Project_member         pq.StringArray `json:"project_member" gorm:"type:text[]"`
 	Meeting_id             pq.StringArray `json:"meeting_id" gorm:"type:text[]"`
 	File                   pq.StringArray `json:"file"  gorm:"type:text[]"`
-	Task_id                pq.StringArray `json:"task_id"  gorm:"type:text[]"`
+	Task_id                int            `json:"task_id" `
 	Manufactrue_order_list pq.StringArray `json:"manufactrue_order_list"  gorm:"type:text[]"`
 	Date_for_pay           time.Time      `json:"date_for_pay"`
 	Date_for_delivery      time.Time      `json:"date_for_delivery"`
