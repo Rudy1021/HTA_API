@@ -202,8 +202,8 @@ type Project struct {
 	Code                   string         `json:"code"`
 	Name                   string         `json:"name"`
 	Customer_name          string         `json:"customer_name"`
-	Date_for_start         time.Time      `gorm:"type:date" json:"date_for_start"`
-	Date_for_end           time.Time      `gorm:"type:date" json:"date_for_end"`
+	Date_for_start         string         `json:"date_for_start"`
+	Date_for_end           string         `json:"date_for_end"`
 	Salesman_name          string         `json:"salesman_name"`
 	Serviceman_name        string         `json:"serviceman_name"`
 	Projectman_name        string         `json:"projectman_name"`
