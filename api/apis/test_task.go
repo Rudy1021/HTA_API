@@ -85,29 +85,19 @@ func Test_Task_u(c *gin.Context) {
 	}
 }
 
-/*
-func findAll(table string) (result *gorm.DB) {
-	switch table {
-	case "table":
-		var tables []model.Task
-		result = orm.Db.Find(&tables)
-	case "auth":
-		var tables []model.Auth
-		result = orm.Db.Find(&tables)
+func Test_Task_d(c *gin.Context) {
+	var table model.Test_task
+	c.BindJSON(&table)
+	result := orm.Db.Delete(&table)
+	if result.Error != nil {
+		c.JSON(http.StatusOK, gin.H{
+			"code":    -1,
+			"message": result.Error,
+		})
+	} else {
+		c.JSON(http.StatusOK, gin.H{
+			"code":    001,
+			"message": result.Value,
+		})
 	}
-
-	return result
 }
-
-func findone(table string, id int64) (result *gorm.DB) {
-	switch table {
-	case "table":
-		var tables []model.Task
-		result = orm.Db.First(&tables, id)
-	case "auth":
-		var tables []model.Auth
-		result = orm.Db.First(&tables, id)
-	}
-	return result
-}
-*/

@@ -257,6 +257,8 @@ func InitRouter() *gin.Engine {
 
 	router.PUT("/TestTask/Update", Test_Task_u)
 
+	router.DELETE("/TestTask/Delete", Test_Task_d)
+
 	return router
 }
 
