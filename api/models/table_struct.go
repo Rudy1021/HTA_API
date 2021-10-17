@@ -56,7 +56,7 @@ type Customer_demand struct {
 	Countersign_id    pq.Int64Array `json:"countersign_id" gorm:"type:integer[]"`
 	Meeting_id        pq.Int64Array `json:"meeting_id" gorm:"type:integer[]"`
 	Date_for_recive   time.Time     `json:"date_for_recive"`
-	Task_id           pq.Int64Array `json:"task_id" gorm:"type:integer[]"`
+	Task_id           int           `json:"task_id" `
 	Accept            bool          `json:"accept"`
 	Date_for_devlop   time.Time     `json:"date_for_devlop"`
 	Eva_report        bool          `json:"eva_report"`
