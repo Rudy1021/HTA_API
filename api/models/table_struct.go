@@ -188,7 +188,7 @@ type Meeting struct {
 	End_date    time.Time `json:"end_date"`
 	Create_time time.Time `json:"creater_time"`
 	Chairman    int       `json:"chairman"`
-	Attendee    int       `json:"attendee"`
+	Attendees   int       `json:"attendees"`
 }
 
 type Notice_time struct {
