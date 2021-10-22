@@ -259,6 +259,18 @@ func InitRouter() *gin.Engine {
 
 	router.DELETE("/TestTask/Delete", Test_Task_d)
 
+	/*-----------------------Labor_hour-----------------------*/
+
+	router.GET("/LaborHour/Select", Labor_hour_r)
+
+	router.GET("/LaborHour/Select/:id", Labor_hour_one)
+
+	router.POST("/LaborHour/Upload", Labor_hour_c)
+
+	router.PUT("/LaborHour/Update", Labor_hour_u)
+
+	router.DELETE("/LaborHour/Delete", Labor_hour_d)
+
 	return router
 }
 

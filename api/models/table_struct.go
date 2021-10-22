@@ -286,3 +286,16 @@ type Test_task struct {
 	T_id   int            `gorm:"<-:update;primary_key" json:"t_id"`
 	Detail postgres.Jsonb `gorm:"default:'{}'" json:"detail"`
 }
+
+type Labor_hour struct {
+	H_id           int        `gorm:"<-:update;primary_key" json:"h_id"`
+	Type           string     `json:"type"`
+	Name           string     `json:"name"`
+	Content        string     `json:"content"`
+	Nature         string     `json:"nature"`
+	Date_for_labor *time.Time `json:"date_for_labor"`
+	Time_start     int        `json:"time_start"`
+	Time_end       int        `json:"time_end"`
+	Hour           int        `json:"hour"`
+	Create_time    *time.Time `json:"create_time"`
+}
