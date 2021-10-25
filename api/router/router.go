@@ -82,15 +82,15 @@ func InitRouter() *gin.Engine {
 	/*-----------------------Department-----------------------*/
 
 	/*-----------------------Files-----------------------*/
-	router.GET("/File/Select", File_r)
+	//router.GET("/File/Select", File_r)
 
 	router.POST("/File/Download/:name", File_one)
 
 	router.POST("/File/Upload", File_c)
 
-	router.PUT("/File/Update", File_u)
+	//router.PUT("/File/Update", File_u)
 
-	router.DELETE("/File/Delete/:id", File_d)
+	//router.DELETE("/File/Delete/:id", File_d)
 	/*-----------------------Files-----------------------*/
 
 	/*-----------------------Interview-----------------------*/

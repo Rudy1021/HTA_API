@@ -3,18 +3,16 @@ package apis
 import (
 	orm "HTA_api/api/database"
 	model "HTA_api/api/models"
-	"fmt"
-	"io"
 	"log"
 	"net/http"
 	"os"
 	"path/filepath"
-	"strconv"
 	"time"
 
 	"github.com/gin-gonic/gin"
 )
 
+/*
 func File_r(c *gin.Context) {
 	var table []model.File
 	result := orm.Db.Find(&table)
@@ -31,12 +29,11 @@ func File_r(c *gin.Context) {
 	}
 
 }
+*/
 
 func File_one(c *gin.Context) {
 	var table model.File
 	name := c.Param("name")
-	fmt.Println(table)
-	fmt.Println(name)
 	result := orm.Db.First(&table, "name= ?", name)
 	if result.Error != nil {
 		c.JSON(http.StatusOK, gin.H{
@@ -44,17 +41,19 @@ func File_one(c *gin.Context) {
 			"message": result.Error,
 		})
 	} else {
-		file, err := os.Open(table.Path + table.Name) //Create a file
-		if err != nil {
+		file := table.Path + table.Name
+		_, errByOpenFile := os.Open(file)
+		if errByOpenFile != nil {
 			return
-		}
-		defer file.Close()
-		c.Writer.Header().Add("Content-type", "application/octet-stream")
-		_, err = io.Copy(c.Writer, file)
-		if err != nil {
+		} else {
+			c.Header("Content-Type", "application/octet-stream")
+			c.Header("Content-Disposition", "attachment; filename="+table.Name)
+			c.Header("Content-Transfer-Encoding", "binary")
+			c.File(file)
 			return
 		}
 	}
+
 }
 
 func File_c(c *gin.Context) {
@@ -65,15 +64,6 @@ func File_c(c *gin.Context) {
 	}
 	filename := filepath.Base(file.Filename)
 	err = c.SaveUploadedFile(file, "./api/files/"+filename)
-	if err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"result": "上傳檔案出錯：" + err.Error()})
-	} else {
-		c.JSON(http.StatusOK, gin.H{"result": "上傳成功"})
-	}
-	c.JSON(http.StatusOK, gin.H{
-		"code":    001,
-		"message": 'a',
-	})
 	var table model.File
 	table.Name = file.Filename
 	table.Path = "./api/files/"
@@ -84,6 +74,8 @@ func File_c(c *gin.Context) {
 			"code":    -1,
 			"message": result.Error,
 		})
+	} else if err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"result": "上傳檔案出錯：" + err.Error()})
 	} else {
 		c.JSON(http.StatusOK, gin.H{
 			"code":    001,
@@ -92,6 +84,7 @@ func File_c(c *gin.Context) {
 	}
 }
 
+/*
 func File_u(c *gin.Context) {
 	var table model.File
 	c.BindJSON(&table)
@@ -132,7 +125,7 @@ func File_d(c *gin.Context) {
 		}
 	}
 }
-
+*/
 /*
 func findAll(table string) (result *gorm.DB) {
 	switch table {
