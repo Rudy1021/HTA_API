@@ -81,7 +81,7 @@ type Department struct {
 	Fax          string `json:"fax"`
 }
 
-type Files struct {
+type File struct {
 	F_id        int       `gorm:"<-:update;primary_key" json:"f_id"`
 	Name        string    `json:"name"`
 	Path        string    `json:"path"`
