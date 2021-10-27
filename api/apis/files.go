@@ -7,12 +7,12 @@ import (
 	"net/http"
 	"os"
 	"path/filepath"
+	"strconv"
 	"time"
 
 	"github.com/gin-gonic/gin"
 )
 
-/*
 func File_r(c *gin.Context) {
 	var table []model.File
 	result := orm.Db.Find(&table)
@@ -29,9 +29,33 @@ func File_r(c *gin.Context) {
 	}
 
 }
-*/
 
 func File_one(c *gin.Context) {
+	var table model.File
+	id, err := strconv.ParseInt(c.Param("id"), 10, 64)
+	if err != nil {
+		c.JSON(http.StatusOK, gin.H{
+			"code":    -1,
+			"message": err,
+		})
+	} else {
+		result := orm.Db.First(&table, id)
+		if result.Error != nil {
+			c.JSON(http.StatusOK, gin.H{
+				"code":    -1,
+				"message": err,
+			})
+		} else {
+			c.JSON(http.StatusOK, gin.H{
+				"code":    001,
+				"message": result.Value,
+			})
+		}
+
+	}
+}
+
+func File_download(c *gin.Context) {
 	var table model.File
 	name := c.Param("name")
 	result := orm.Db.First(&table, "name= ?", name)
